@@ -1,4 +1,4 @@
-package com.example.cleanarchmovieapp
+package com.dfl.cleanarchmovieapp
 
 import org.junit.Test
 
