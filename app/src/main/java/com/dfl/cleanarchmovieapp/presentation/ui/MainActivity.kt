@@ -11,7 +11,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: ManagementMoviesVM by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,18 +18,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        viewModel.getAllMovies()
-        viewModel.movies.observe(this, {model->
 
-            when (model) {
-                is UiModel.Loading -> Log.d("test", "loading")
-                is UiModel.ContentMovies -> {
-                    model.movies.forEach {
-                        Log.d("test", "movie ${it.name}")
-                    }
-                }
-                else ->  Log.d("test", "nothing")
-            }
-        })
     }
 }
