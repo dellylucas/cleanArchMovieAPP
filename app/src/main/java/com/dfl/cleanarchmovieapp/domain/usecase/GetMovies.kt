@@ -6,4 +6,5 @@ import com.dfl.cleanarchmovieapp.utils.DataResult
 
 class GetMovies(private val moviesRepository: MoviesRepository) {
     suspend fun getAllMovies(): DataResult<List<Movie>> = moviesRepository.getMovies()
+    suspend fun getMovieById(id:Int): Movie = moviesRepository.getMovieById(id)
 }

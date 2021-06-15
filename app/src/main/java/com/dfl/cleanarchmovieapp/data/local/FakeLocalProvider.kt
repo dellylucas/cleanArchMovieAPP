@@ -15,4 +15,9 @@ class FakeLocalProvider : IDataSource {
             )
         )
 
+    override suspend fun getMovieById(id: Int): DataResult<Movie> =
+        DataResult.Success(
+            Movie(1, "osos", "", "")
+        )
+
 }

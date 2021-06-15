@@ -18,5 +18,9 @@
         android:id="@+id/detailFragment"
         android:name="com.dfl.cleanarchmovieapp.presentation.ui.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="idMovie"
+            app:argType="integer" />
+    </fragment>
 </navigation>

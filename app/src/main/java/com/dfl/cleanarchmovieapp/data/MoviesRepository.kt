@@ -21,6 +21,12 @@ class MoviesRepository(
     }
 
     /**
+     * Obtiene una pelicula de la fuente de datos local por ID
+     */
+    suspend fun getMovieById(id: Int): Movie =
+        (localDataSource.getMovieById(id) as DataResult.Success).data
+
+    /**
      * si se obtiene remoto se extraen y guardan en BD local
      */
     private suspend fun saveMovies(result: DataResult<List<Movie>>) {

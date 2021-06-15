@@ -15,6 +15,12 @@ class RoomDBDataSource(db: DataBase) : IDataSource {
         DataResult.Success(MovieMap.getMoviesFromEntity(movieDao.getAllMovies()))
     }
 
+    override suspend fun getMovieById(id: Int): DataResult<Movie> = withContext(Dispatchers.IO) {
+        DataResult.Success(
+            MovieMap.getMovieFromEntity(movieDao.findById(id))
+        )
+    }
+
     override suspend fun saveMovies(movies: List<Movie>) {
         withContext(Dispatchers.IO) { movieDao.insertMovies(MovieMap.getMoviesEntity(movies)) }
     }

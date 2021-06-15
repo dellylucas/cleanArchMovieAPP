@@ -27,14 +27,15 @@ object MovieMap {
             )
         }
 
+    fun getMovieFromEntity(entity: MovieEntity): Movie =
+        Movie(
+            id = entity.id,
+            name = entity.title,
+            description = entity.description,
+            posterPath = entity.posterPath,
+            isAdult = entity.isAdult
+        )
+
     fun getMoviesFromEntity(result: List<MovieEntity>): List<Movie> =
-        result.map {
-            Movie(
-                id = it.id,
-                name = it.title,
-                description = it.description,
-                posterPath = it.posterPath,
-                isAdult = it.isAdult
-            )
-        }
+        result.map { getMovieFromEntity(it) }
 }

@@ -10,7 +10,7 @@ import com.dfl.cleanarchmovieapp.domain.model.Movie
 import com.dfl.cleanarchmovieapp.utils.Constants.BASE_URL_MOVIES_DB_IMAGE
 import com.dfl.cleanarchmovieapp.utils.loadUrl
 
-class ListMovieAdapter :
+class ListMovieAdapter(val listener: (Int) -> Unit) :
     ListAdapter<Movie, ListMovieAdapter.ListViewHolder>(DifUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -20,8 +20,9 @@ class ListMovieAdapter :
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val paymentBean = getItem(position)
-        holder.bind(paymentBean)
+        val movie = getItem(position)
+        holder.bind(movie)
+        holder.itemView.setOnClickListener { listener(movie.id) }
     }
 
     inner class ListViewHolder(private val view: AdapterListMovieBinding) :

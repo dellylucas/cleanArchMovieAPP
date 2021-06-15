@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.navigation.fragment.findNavController
 import com.dfl.cleanarchmovieapp.databinding.FragmentListMovieBinding
 import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,7 +19,7 @@ class ListMovieFragment : Fragment() {
 
     private val binding get() = _binding!!
     private val viewModel: ManagementMoviesVM by activityViewModels()
-    private val adapterMovies = ListMovieAdapter()
+    private val adapterMovies = ListMovieAdapter(::goToDetail)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,8 +40,15 @@ class ListMovieFragment : Fragment() {
         })
     }
 
+    private fun goToDetail(idMovie: Int) {
+        findNavController().navigate(
+            ListMovieFragmentDirections.actionListMovieFragmentToDetailFragment(idMovie)
+        )
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

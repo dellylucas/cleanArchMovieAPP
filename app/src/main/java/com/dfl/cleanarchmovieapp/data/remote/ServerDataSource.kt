@@ -17,4 +17,8 @@ class ServerDataSource : IDataSource {
         else DataResult.Error(Exception(result.message() + " " + result.code()))
     }
 
+    override suspend fun getMovieById(id: Int): DataResult<Movie> {
+        TODO("Not yet implemented")
+    }
+
 }
