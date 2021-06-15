@@ -9,10 +9,15 @@ class FakeLocalProvider : IDataSource {
     override suspend fun getMovies(): DataResult<List<Movie>> =
         DataResult.Success(
             listOf(
-                Movie(1, "osos", null, null),
-                Movie(2, "pez", null, null),
-                Movie(3, "aguila", null, null)
+                Movie(1, "osos", "", ""),
+                Movie(2, "pez", "", ""),
+                Movie(3, "aguila", "", "")
             )
+        )
+
+    override suspend fun getMovieById(id: Int): DataResult<Movie> =
+        DataResult.Success(
+            Movie(1, "osos", "", "")
         )
 
 }

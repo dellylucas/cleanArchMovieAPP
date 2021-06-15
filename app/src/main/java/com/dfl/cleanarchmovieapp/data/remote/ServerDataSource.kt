@@ -5,7 +5,7 @@ import com.dfl.cleanarchmovieapp.data.mapper.MovieMap
 import com.dfl.cleanarchmovieapp.domain.model.Movie
 import com.dfl.cleanarchmovieapp.utils.DataResult
 
-class Server : IDataSource {
+class ServerDataSource : IDataSource {
 
     override suspend fun getMovies(): DataResult<List<Movie>> {
 
@@ -15,6 +15,10 @@ class Server : IDataSource {
         return if (result.isSuccessful && result.body() != null)
             DataResult.Success(MovieMap.getItems(result.body()!!.results))
         else DataResult.Error(Exception(result.message() + " " + result.code()))
+    }
+
+    override suspend fun getMovieById(id: Int): DataResult<Movie> {
+        TODO("Not yet implemented")
     }
 
 }

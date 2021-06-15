@@ -12,9 +12,9 @@ data class MovieRemote(
     val id: Int,
     val title: String,
     val adult: Boolean,
-    val overview: String?,
+    val overview: String,
     @SerializedName("genre_ids")
     val genreId: List<Int>,
     @SerializedName("poster_path")
-    val posterPath: String
+    val posterPath: String?
 )

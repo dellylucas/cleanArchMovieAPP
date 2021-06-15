@@ -6,49 +6,47 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
-import com.dfl.cleanarchmovieapp.databinding.FragmentListMovieBinding
+import androidx.navigation.fragment.navArgs
+import com.dfl.cleanarchmovieapp.databinding.FragmentDetailBinding
 import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
+import com.dfl.cleanarchmovieapp.utils.Constants
+import com.dfl.cleanarchmovieapp.utils.loadUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ListMovieFragment : Fragment() {
-
+class DetailFragment : Fragment() {
     // propiedad es valida entre onCreateView y onDestroyView
-    private var _binding: FragmentListMovieBinding? = null
+    private var _binding: FragmentDetailBinding? = null
 
     private val binding get() = _binding!!
+
     private val viewModel: ManagementMoviesVM by activityViewModels()
-    private val adapterMovies = ListMovieAdapter(::goToDetail)
+    private val args: DetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentListMovieBinding.inflate(inflater, container, false)
+        _binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.moviesRecyclerView.adapter = adapterMovies
+        val idMovie = args.idMovie
+        viewModel.getMovieById(idMovie)
+        viewModel.currentMovie.observe(viewLifecycleOwner, { movie ->
+            movie.posterPath?.let { binding.detailImage.loadUrl(Constants.BASE_URL_MOVIES_DB_IMAGE_HIGH + it) }
 
-        viewModel.getAllMovies()
-        viewModel.movies.observe(viewLifecycleOwner, { movies ->
-            adapterMovies.submitList(movies)
+            binding.titleTextView.text = movie.name
+            binding.detailTextView.text = movie.description
+
         })
-    }
-
-    private fun goToDetail(idMovie: Int) {
-        findNavController().navigate(
-            ListMovieFragmentDirections.actionListMovieFragmentToDetailFragment(idMovie)
-        )
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

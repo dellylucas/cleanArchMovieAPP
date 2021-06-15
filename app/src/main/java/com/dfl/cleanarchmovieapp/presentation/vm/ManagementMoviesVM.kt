@@ -7,8 +7,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dfl.cleanarchmovieapp.domain.model.Movie
 import com.dfl.cleanarchmovieapp.domain.usecase.GetMovies
+import com.dfl.cleanarchmovieapp.utils.Constants.TRACK_INFO
 import com.dfl.cleanarchmovieapp.utils.DataResult
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -28,22 +31,29 @@ class ManagementMoviesVM @Inject constructor(
         get() {
             return _movies
         }
+    private val _currentMovie = MutableLiveData<Movie>()
+    val currentMovie: LiveData<Movie>
+        get() {
+            return _currentMovie
+        }
 
     fun getAllMovies() {
         viewModelScope.launch {
             _load.value = true
 
             when (val result = getUseCaseMovies.getAllMovies()) {
-                is DataResult.Error -> {
-                    _load.value = false
-                    Log.d("test", "error")
-                }
-                is DataResult.Success -> {
-                    _load.value = false
-                    Log.d("test", "nothing")
-                    _movies.value = result.data
-                }
+                is DataResult.Error -> Log.d(TRACK_INFO, "error: " + result.exception.message)
+                is DataResult.Success -> _movies.value = result.data
             }
+            _load.value = false
+        }
+    }
+
+    fun getMovieById(id: Int) {
+        viewModelScope.launch {
+            _load.value = true
+            _currentMovie.value = getUseCaseMovies.getMovieById(id)
+            _load.value = false
         }
     }
 }

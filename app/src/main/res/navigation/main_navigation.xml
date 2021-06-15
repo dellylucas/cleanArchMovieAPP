@@ -9,5 +9,18 @@
         android:id="@+id/listMovieFragment"
         android:name="com.dfl.cleanarchmovieapp.presentation.ui.ListMovieFragment"
         android:label="fragment_list_movie"
-        tools:layout="@layout/fragment_list_movie" />
+        tools:layout="@layout/fragment_list_movie" >
+        <action
+            android:id="@+id/action_listMovieFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.dfl.cleanarchmovieapp.presentation.ui.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="idMovie"
+            app:argType="integer" />
+    </fragment>
 </navigation>
