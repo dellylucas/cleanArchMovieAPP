@@ -19,4 +19,7 @@ class DataModule {
 
     @Provides
     fun fakeDataSourceProvider(): IDataSource = FakeLocalProvider()
+
+   /* @Provides
+    fun remoteDataSourceProvider(): IDataSource = FakeLocalProvider()*/
 }

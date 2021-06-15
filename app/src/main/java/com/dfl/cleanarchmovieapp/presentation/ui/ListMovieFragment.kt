@@ -1,7 +1,6 @@
 package com.dfl.cleanarchmovieapp.presentation.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +19,7 @@ class ListMovieFragment : Fragment() {
 
     private val binding get() = _binding!!
     private val viewModel: ManagementMoviesVM by activityViewModels()
-    private val adapter = ListMovieAdapter()
+    private val adapterMovies = ListMovieAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,17 +33,12 @@ class ListMovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.moviesRecyclerView.apply {
-            adapter = adapter
+            this.adapter = adapterMovies
             layoutManager = GridLayoutManager(requireContext(), 3)
         }
         viewModel.getAllMovies()
-        viewModel.movies.observe(viewLifecycleOwner, { model ->
-
-            when (model) {
-                is UiModel.Loading -> Log.d("test", "loading")
-                is UiModel.ContentMovies -> adapter.submitList(model.movies)
-                else -> Log.d("test", "nothing")
-            }
+        viewModel.movies.observe(viewLifecycleOwner, { movies ->
+            adapterMovies.submitList(movies)
         })
     }
 

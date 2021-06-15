@@ -11,6 +11,8 @@ buildscript {
     ext.espresso_version = '3.3.0'
     ext.hilt_version = '2.37'
     ext.nav_version = '2.3.5'
+    ext.interceptor_version = '4.9.0'
+    ext.retrofit_version = '2.9.0'
 
     repositories {
         google()
