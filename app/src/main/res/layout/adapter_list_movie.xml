@@ -5,10 +5,11 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatImageButton
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -16,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="18sp"
         tools:text="NEMO" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

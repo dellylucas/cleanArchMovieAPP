@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.dfl.cleanarchmovieapp.databinding.AdapterListMovieBinding
 import com.dfl.cleanarchmovieapp.domain.model.Movie
+import com.dfl.cleanarchmovieapp.utils.Constants.BASE_URL_MOVIES_DB_IMAGE
+import com.dfl.cleanarchmovieapp.utils.loadUrl
 
 class ListMovieAdapter :
     ListAdapter<Movie, ListMovieAdapter.ListViewHolder>(DifUtil()) {
@@ -27,6 +29,7 @@ class ListMovieAdapter :
 
         fun bind(movie: Movie) {
             view.movieTextView.text = movie.name
+            movie.posterPath?.let { view.imageButton.loadUrl(BASE_URL_MOVIES_DB_IMAGE + it) }
         }
 
     }

@@ -32,10 +32,8 @@ class ListMovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.moviesRecyclerView.apply {
-            this.adapter = adapterMovies
-            layoutManager = GridLayoutManager(requireContext(), 3)
-        }
+        binding.moviesRecyclerView.adapter = adapterMovies
+
         viewModel.getAllMovies()
         viewModel.movies.observe(viewLifecycleOwner, { movies ->
             adapterMovies.submitList(movies)

@@ -61,10 +61,12 @@ dependencies {
     // retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    // implementation "com.google.code.gson:gson:$gson_version"
     //interceptor
     implementation "com.squareup.okhttp3:logging-interceptor:$interceptor_version"
 
+    //glide
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
     //test
     testImplementation "junit:junit:$junit_version"
