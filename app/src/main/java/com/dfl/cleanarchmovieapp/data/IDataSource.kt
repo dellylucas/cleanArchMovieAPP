@@ -5,4 +5,5 @@ import com.dfl.cleanarchmovieapp.utils.DataResult
 
 interface IDataSource {
     suspend fun getMovies(): DataResult<List<Movie>>
+    suspend fun saveMovies(movies: List<Movie>){}
 }

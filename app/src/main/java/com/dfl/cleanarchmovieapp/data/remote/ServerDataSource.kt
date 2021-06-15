@@ -5,7 +5,7 @@ import com.dfl.cleanarchmovieapp.data.mapper.MovieMap
 import com.dfl.cleanarchmovieapp.domain.model.Movie
 import com.dfl.cleanarchmovieapp.utils.DataResult
 
-class Server : IDataSource {
+class ServerDataSource : IDataSource {
 
     override suspend fun getMovies(): DataResult<List<Movie>> {
 
