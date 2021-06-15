@@ -13,7 +13,7 @@ class Server : IDataSource {
             .getProducts()
 
         return if (result.isSuccessful && result.body() != null)
-            DataResult.Success(MovieMap.getItems(result.body()!!.result))
+            DataResult.Success(MovieMap.getItems(result.body()!!.results))
         else DataResult.Error(Exception(result.message() + " " + result.code()))
     }
 

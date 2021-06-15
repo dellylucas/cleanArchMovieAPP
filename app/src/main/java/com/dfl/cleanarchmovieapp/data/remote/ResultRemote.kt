@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ResultRemote(
     @SerializedName("total_pages")
     val totalPages: Int,
-    val result: List<MovieRemote>
+    val results: List<MovieRemote>
 )
 
 data class MovieRemote(

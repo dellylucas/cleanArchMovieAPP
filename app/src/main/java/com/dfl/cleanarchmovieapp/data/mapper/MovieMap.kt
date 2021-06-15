@@ -14,6 +14,4 @@ object MovieMap {
                 isAdult = it.adult
             )
         }
-
-
 }
