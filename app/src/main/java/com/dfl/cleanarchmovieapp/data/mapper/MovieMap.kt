@@ -16,18 +16,17 @@ object MovieMap {
             )
         }
 
-    //TODO implementarpara  insercion
-    fun getMoviesEntity(result: List<Movie>): List<MovieEntity> = emptyList()
+    fun getMoviesEntity(result: List<Movie>): List<MovieEntity> =
+        result.map {
+            MovieEntity(
+                id = it.id,
+                title = it.name,
+                description = it.description,
+                posterPath = it.posterPath,
+                isAdult = it.isAdult
+            )
+        }
 
-    /* result.map {
-         Movie(
-             id = it.id,
-             name = it.title,
-             description = it.overview,
-             posterPath = it.posterPath,
-             isAdult = it.adult
-         )
-     }*/
     fun getMoviesFromEntity(result: List<MovieEntity>): List<Movie> =
         result.map {
             Movie(
