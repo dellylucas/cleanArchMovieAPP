@@ -41,14 +41,4 @@ class MappersUnitTest {
         assertEquals(expected, sut)
     }
 
-    @Test
-    fun other() {
-        val movie = MovieRemote(1, "nemo", true, "historia", listOf(1), "image")
-        val page = 2
-        // val exa = mockk<MovieRemote>()
-        //every { exa } returns "6"
-        val sut = MovieMap.getItems(listOf(movie), page)
-
-        assertEquals(11, movie)
-    }
 }

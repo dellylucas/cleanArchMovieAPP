@@ -1,4 +1,4 @@
-package com.dfl.cleanarchmovieapp.data.local
+package com.dfl.cleanarchmovieapp.data
 
 import com.dfl.cleanarchmovieapp.data.IDataSource
 import com.dfl.cleanarchmovieapp.domain.model.Movie
