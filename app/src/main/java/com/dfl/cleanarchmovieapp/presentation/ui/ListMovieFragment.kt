@@ -22,7 +22,6 @@ class ListMovieFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: ManagementMoviesVM by activityViewModels()
     private val adapterMovies = ListMovieAdapter(::goToDetail)
-    private var page: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,19 +38,20 @@ class ListMovieFragment : Fragment() {
 
         viewModel.getAllMovies()
         viewModel.movies.observe(viewLifecycleOwner, { movies ->
-            movies.last().page.let { if (page < it) page = it }
-
             adapterMovies.submitList(movies)
         })
         binding.moviesRecyclerView.addOnScrollListener(onScrollListener())
     }
 
+    /**
+     * Scroll para detectar ultimo item y cargar nuevos elementos
+     */
     private fun onScrollListener() = object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
             val lastItemVisible =
                 (recyclerView.layoutManager as GridLayoutManager).findLastVisibleItemPosition()
-            viewModel.getNewMovies(lastItemVisible, page)
+            viewModel.getNewMovies(lastItemVisible)
         }
     }
 

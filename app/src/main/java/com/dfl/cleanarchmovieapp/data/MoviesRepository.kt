@@ -36,7 +36,7 @@ class MoviesRepository(
         (localDataSource.getMovieById(id) as DataResult.Success).data
 
     /**
-     * si se obtiene remoto se extraen y guardan en BD local
+     * si se obtienen peliculas por fuente remota se guardan en BD local
      */
     private suspend fun saveMovies(result: DataResult<List<Movie>>, page: Int) {
         if (result is DataResult.Success)
