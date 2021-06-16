@@ -45,11 +45,21 @@ class ManagementMoviesVMTest {
     }
 
     @Test
-    fun testFer() {
+    fun testIntegrationReturnMovies() {
         viewModel.getAllMovies()
 
         val value = viewModel.movies.getOrAwaitValueTest()
         assertThat(value.first()).isEqualTo(Movie(1, "osos", "", ""))
+    }
+
+    @Test
+    fun testIntegrationReturnMovieById() {
+        val movieId = 2
+        viewModel.getMovieById(movieId)
+
+        val value = viewModel.currentMovie.getOrAwaitValueTest()
+        assertThat(value).isEqualTo(Movie(2, "perro", "", ""))
+        assertThat(value).isNotEqualTo(Movie(1, "osos", "", ""))
     }
 
     @ExperimentalCoroutinesApi
