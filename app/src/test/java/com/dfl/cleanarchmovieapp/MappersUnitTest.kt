@@ -8,11 +8,9 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 /**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
+ *pruebas unitarias sobre mapeadores
  */
-class ExampleUnitTest {
+class MappersUnitTest {
     @Test
     fun testMapRemoteToModel() {
         val remote = MovieRemote(1, "nemo", true, "historia", listOf(1), "image")
@@ -26,7 +24,7 @@ class ExampleUnitTest {
     @Test
     fun testMapToDB() {
         val model = Movie(1, "nemo", "historia", "image", true, 2)
-        val expected = MovieEntity(1, "nemo", "historia", "image",true,2)
+        val expected = MovieEntity(1, "nemo", "historia", "image", true, 2)
         val page = 2
         val sut = MovieMap.getMoviesEntity(listOf(model), page)
 
@@ -35,7 +33,7 @@ class ExampleUnitTest {
 
     @Test
     fun testMapFromDBToModel() {
-        val model = MovieEntity(1, "nemo", "historia", "image",true,2)
+        val model = MovieEntity(1, "nemo", "historia", "image", true, 2)
         val expected = Movie(1, "nemo", "historia", "image", true, 2)
 
         val sut = MovieMap.getMovieFromEntity(model)
