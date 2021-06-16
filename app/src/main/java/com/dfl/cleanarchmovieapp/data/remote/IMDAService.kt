@@ -7,8 +7,8 @@ import retrofit2.http.Query
 interface IMDAService {
     @GET("popular")
     suspend fun getProducts(
-        @Query("api_key") key: String = "b4f4465ffe3a2ac82a211519e614e1fa",
+        @Query("api_key") key: String,
         @Query("language") language: String = "es-CO",
-        @Query("page") page: Int = 1
+        @Query("page") page: Int
     ): Response<ResultRemote>
 }

@@ -11,7 +11,7 @@ class RoomDBDataSource(db: DataBase) : IDataSource {
 
     private val movieDao = db.movieDao()
 
-    override suspend fun getMovies(): DataResult<List<Movie>> = withContext(Dispatchers.IO) {
+    override suspend fun getMovies(page:Int): DataResult<List<Movie>> = withContext(Dispatchers.IO) {
         DataResult.Success(MovieMap.getMoviesFromEntity(movieDao.getAllMovies()))
     }
 
@@ -21,7 +21,7 @@ class RoomDBDataSource(db: DataBase) : IDataSource {
         )
     }
 
-    override suspend fun saveMovies(movies: List<Movie>) {
-        withContext(Dispatchers.IO) { movieDao.insertMovies(MovieMap.getMoviesEntity(movies)) }
+    override suspend fun saveMovies(movies: List<Movie>,page: Int) {
+        withContext(Dispatchers.IO) { movieDao.insertMovies(MovieMap.getMoviesEntity(movies,page)) }
     }
 }

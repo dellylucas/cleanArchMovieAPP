@@ -10,8 +10,6 @@ import com.dfl.cleanarchmovieapp.domain.usecase.GetMovies
 import com.dfl.cleanarchmovieapp.utils.Constants.TRACK_INFO
 import com.dfl.cleanarchmovieapp.utils.DataResult
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,10 +19,6 @@ class ManagementMoviesVM @Inject constructor(
 ) : ViewModel() {
 
     private val _load = MutableLiveData<Boolean>()
-    val load: LiveData<Boolean>
-        get() {
-            return _load
-        }
 
     private val _movies = MutableLiveData<List<Movie>>()
     val movies: LiveData<List<Movie>>
@@ -37,6 +31,9 @@ class ManagementMoviesVM @Inject constructor(
             return _currentMovie
         }
 
+    /**
+     * Obtener todas las peliculas
+     */
     fun getAllMovies() {
         viewModelScope.launch {
             _load.value = true
@@ -49,6 +46,32 @@ class ManagementMoviesVM @Inject constructor(
         }
     }
 
+    /**
+     * obtiene nuevas peliculas de la fuente remota al
+     * detectar la visualizacion de las ultimas en la vista para saber si
+     * traer nuevas
+     */
+    fun getNewMovies(visibleNumber: Int, page: Int) {
+        val fileBeforeCharge = 6
+        val itemVisibleForCharge = (_movies.value?.count() ?: 0) - fileBeforeCharge
+        //si faltan como minimo 6 peliculas por mostrar carga nmuevas
+        if (itemVisibleForCharge <= visibleNumber && _load.value == false) {
+            _load.value = true
+            viewModelScope.launch {
+                when (val result = getUseCaseMovies.getMoviesByPage(page + 1)) {
+                    is DataResult.Error -> Log.d(TRACK_INFO, "error: " + result.exception.message)
+                    is DataResult.Success -> {
+                        _movies.value = _movies.value?.plus(result.data)
+                    }
+                }
+                _load.value = false
+            }
+        }
+    }
+
+    /**
+     * Obtener pelicula por identificador
+     */
     fun getMovieById(id: Int) {
         viewModelScope.launch {
             _load.value = true

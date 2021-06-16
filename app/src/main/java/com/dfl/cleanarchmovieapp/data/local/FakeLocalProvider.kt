@@ -6,7 +6,7 @@ import com.dfl.cleanarchmovieapp.utils.DataResult
 
 class FakeLocalProvider : IDataSource {
 
-    override suspend fun getMovies(): DataResult<List<Movie>> =
+    override suspend fun getMovies(page:Int): DataResult<List<Movie>> =
         DataResult.Success(
             listOf(
                 Movie(1, "osos", "", ""),

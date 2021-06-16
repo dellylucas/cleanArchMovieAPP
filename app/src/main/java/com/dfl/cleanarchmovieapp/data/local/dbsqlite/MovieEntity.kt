@@ -10,5 +10,6 @@ data class MovieEntity(
     val title: String,
     val description: String,
     val posterPath: String?,
-    val isAdult: Boolean
+    val isAdult: Boolean,
+    val page:Int
 )
