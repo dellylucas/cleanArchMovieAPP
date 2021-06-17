@@ -38,10 +38,7 @@ class DetailFragment : Fragment() {
         viewModel.getMovieById(idMovie)
         viewModel.currentMovie.observe(viewLifecycleOwner, { movie ->
             movie.posterPath?.let { binding.detailImage.loadUrl(Constants.BASE_URL_MOVIES_DB_IMAGE_HIGH + it) }
-
-            binding.titleTextView.text = movie.name
-            binding.detailTextView.text = movie.description
-
+            binding.movie = movie
         })
     }
 

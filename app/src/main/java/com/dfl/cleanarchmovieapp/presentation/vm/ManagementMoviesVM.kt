@@ -22,7 +22,6 @@ class ManagementMoviesVM @Inject constructor(
     val load: LiveData<Boolean>
         get() = _load
 
-
     private val _movies = MutableLiveData<List<Movie>>()
     val movies: LiveData<List<Movie>>
         get() = _movies
