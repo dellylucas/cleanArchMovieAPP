@@ -30,4 +30,4 @@ Se emplearon pruebas unitarias, de integracion entre componentes e instrumentada
 * 
 ...
 
-##### Nota: Al clonar el proyecto se debe generar en el local.properties un API_KEY que se generara en el sitio oficial [themoviedb](https://developers.themoviedb.org/3/movies/get-popular-movies)
+##### Nota: Al clonar el proyecto se debe crear en el local.properties una variable API_KEY que se generara en el sitio oficial [themoviedb](https://developers.themoviedb.org/3/movies/get-popular-movies)
