@@ -63,7 +63,7 @@ class ManagementMoviesVM @Inject constructor(
                     is DataResult.Error -> Log.d(TRACK_INFO, "error: " + result.exception.message)
                     is DataResult.Success -> {
                         page = result.data.first().page
-                        _movies.value = _movies.value?.plus(result.data)
+                        _movies.postValue(_movies.value?.plus(result.data))
                     }
                 }
                 _load.value = false
