@@ -19,17 +19,18 @@ class ManagementMoviesVM @Inject constructor(
 ) : ViewModel() {
 
     private val _load = MutableLiveData<Boolean>()
+    val load: LiveData<Boolean>
+        get() = _load
+
 
     private val _movies = MutableLiveData<List<Movie>>()
     val movies: LiveData<List<Movie>>
-        get() {
-            return _movies
-        }
+        get() = _movies
+
     private val _currentMovie = MutableLiveData<Movie>()
     val currentMovie: LiveData<Movie>
-        get() {
-            return _currentMovie
-        }
+        get() = _currentMovie
+
     private var page: Int = 2
 
     /**

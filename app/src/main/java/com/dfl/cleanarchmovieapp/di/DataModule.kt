@@ -2,7 +2,7 @@ package com.dfl.cleanarchmovieapp.di
 
 import android.app.Application
 import androidx.room.Room
-import com.dfl.cleanarchmovieapp.R
+import com.dfl.cleanarchmovieapp.BuildConfig
 import com.dfl.cleanarchmovieapp.data.IDataSource
 import com.dfl.cleanarchmovieapp.data.local.dbsqlite.DataBase
 import com.dfl.cleanarchmovieapp.data.local.dbsqlite.RoomDBDataSource
@@ -21,7 +21,7 @@ class DataModule {
     @Provides
     @Singleton
     @Named("apiKey")
-    fun apiKeyProvider(app: Application): String = app.getString(R.string.api_key)
+    fun apiKeyProvider(): String = BuildConfig.API_KEY
 
     @Provides
     @Singleton

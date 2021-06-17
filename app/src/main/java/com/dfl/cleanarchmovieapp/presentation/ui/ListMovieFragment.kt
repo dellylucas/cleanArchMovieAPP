@@ -40,6 +40,9 @@ class ListMovieFragment : Fragment() {
         viewModel.movies.observe(viewLifecycleOwner, { movies ->
             adapterMovies.submitList(movies)
         })
+        viewModel.load.observe(viewLifecycleOwner, {
+            (activity as IBaseActivity).setLoading(it)
+        })
         binding.moviesRecyclerView.addOnScrollListener(onScrollListener())
     }
 

@@ -16,6 +16,7 @@ buildscript {
     ext.glide_version = '4.12.0'
     ext.room_version = '2.3.0'
     ext.mockk_version = '1.10.6'
+    ext.lottie_version = '3.7.0'
 
     repositories {
         google()
