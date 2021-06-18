@@ -29,7 +29,7 @@ class ListMovieAdapter(val listener: (Int) -> Unit) :
         RecyclerView.ViewHolder(view.root) {
 
         fun bind(movie: Movie) {
-            view.movieTextView.text = movie.name
+            view.movie = movie
             movie.posterPath?.let { view.imageButton.loadUrl(BASE_URL_MOVIES_DB_IMAGE + it) }
         }
 

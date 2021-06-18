@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.secrets_gradle_plugin' version '0.6.1'
 }
 
 android {
@@ -15,7 +16,7 @@ android {
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName "2.0"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
@@ -35,6 +36,14 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+    dataBinding {
+        enabled = true
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
     }
 }
 
@@ -68,6 +77,8 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
+   //lottie animation
+    implementation "com.airbnb.android:lottie:$lottie_version"
 
     //glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
@@ -75,6 +86,17 @@ dependencies {
 
     //test
     testImplementation "junit:junit:$junit_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    testImplementation "org.robolectric:robolectric:4.4"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.1"
+    testImplementation "com.google.truth:truth:1.0.1"
+    implementation "androidx.arch.core:core-testing:2.1.0"
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+
+
+    // For local unit tests
+    testImplementation 'com.google.dagger:hilt-android-testing:2.37'
+    testAnnotationProcessor 'com.google.dagger:hilt-compiler:2.37'
 }

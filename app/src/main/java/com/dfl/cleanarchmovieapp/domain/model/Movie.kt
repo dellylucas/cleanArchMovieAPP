@@ -5,5 +5,6 @@ data class Movie(
     val name: String,
     val description: String,
     val posterPath: String?,
-    val isAdult: Boolean = false
+    val isAdult: Boolean = false,
+    val page: Int=1
 )

@@ -2,8 +2,8 @@ package com.dfl.cleanarchmovieapp.di
 
 import android.app.Application
 import androidx.room.Room
+import com.dfl.cleanarchmovieapp.BuildConfig
 import com.dfl.cleanarchmovieapp.data.IDataSource
-import com.dfl.cleanarchmovieapp.data.local.FakeLocalProvider
 import com.dfl.cleanarchmovieapp.data.local.dbsqlite.DataBase
 import com.dfl.cleanarchmovieapp.data.local.dbsqlite.RoomDBDataSource
 import com.dfl.cleanarchmovieapp.data.remote.ServerDataSource
@@ -18,11 +18,11 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class DataModule {
 
-    /*  @Provides
-      @Singleton
-      @Named("apiKey")
-      fun apiKeyProvider(app: Application): String = app.getString(R.string.api_key)
-  */
+    @Provides
+    @Singleton
+    @Named("apiKey")
+    fun apiKeyProvider(): String = BuildConfig.API_KEY
+
     @Provides
     @Singleton
     fun databaseProvider(app: Application) = Room.databaseBuilder(
@@ -32,12 +32,10 @@ class DataModule {
     ).build()
 
     @Provides
-    @Named("fakeLocal")
-    fun fakeDataSourceProvider(): IDataSource = FakeLocalProvider()
-
-    @Provides
     @Named("remote")
-    fun remoteDataSourceProvider(): IDataSource = ServerDataSource()
+    fun remoteDataSourceProvider(
+        @Named("apiKey") key: String
+    ): IDataSource = ServerDataSource(key)
 
     @Provides
     @Named("local")
