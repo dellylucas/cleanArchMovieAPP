@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="movie"
-            type="com.dfl.cleanarchmovieapp.domain.model.Movie" />
+            name="viewModel"
+            type="com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM" />
     </data>
 
     <ScrollView
@@ -26,6 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
+                android:src="@{viewModel.currentMovie.posterPath}"
                 app:layout_constraintBottom_toTopOf="@id/guideline"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/image_test" />
@@ -33,7 +34,7 @@
             <TextView
                 android:id="@+id/titleTextView"
                 style="@style/detail_style"
-                android:text="@{movie.name}"
+                android:text="@{viewModel.currentMovie.name}"
                 android:textSize="25sp"
                 app:layout_constraintTop_toBottomOf="@id/detailImage"
                 tools:text="@string/hello_blank_fragment" />
@@ -41,7 +42,7 @@
             <TextView
                 android:id="@+id/detailTextView"
                 style="@style/detail_style"
-                android:text="@{movie.description }"
+                android:text="@{viewModel.currentMovie.description }"
                 android:textSize="20sp"
                 app:layout_constraintTop_toBottomOf="@id/titleTextView"
                 tools:text="@string/hello_blank_fragment" />

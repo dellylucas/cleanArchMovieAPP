@@ -9,8 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.dfl.cleanarchmovieapp.databinding.FragmentDetailBinding
 import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
-import com.dfl.cleanarchmovieapp.utils.Constants
-import com.dfl.cleanarchmovieapp.utils.loadUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,13 +31,10 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
         val idMovie = args.idMovie
         viewModel.getMovieById(idMovie)
-        viewModel.currentMovie.observe(viewLifecycleOwner, { movie ->
-            movie.posterPath?.let { binding.detailImage.loadUrl(Constants.BASE_URL_MOVIES_DB_IMAGE_HIGH + it) }
-            binding.movie = movie
-        })
     }
 
     override fun onDestroyView() {
