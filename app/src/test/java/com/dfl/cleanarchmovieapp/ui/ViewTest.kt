@@ -6,10 +6,8 @@ import androidx.fragment.app.testing.FragmentScenario
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.fragment.app.testing.withFragment
 import androidx.lifecycle.Lifecycle
-import com.dfl.cleanarchmovieapp.MoviesApplication
 import com.dfl.cleanarchmovieapp.presentation.ui.ListMovieFragment
 import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
-import dagger.hilt.android.testing.HiltAndroidTest
 import io.mockk.mockk
 import org.junit.Before
 import org.junit.Rule
@@ -20,8 +18,8 @@ import org.robolectric.Shadows.shadowOf
 import org.robolectric.annotation.Config
 
 @RunWith(RobolectricTestRunner::class)
-@HiltAndroidTest
-@Config(application = MoviesApplication::class)
+//@HiltAndroidTest
+//@Config(application = MoviesApplication::class)
 class ViewTest {
 
     // Executes tasks in the Architecture Components in the same thread

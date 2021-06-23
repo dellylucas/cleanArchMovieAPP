@@ -9,9 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.dfl.cleanarchmovieapp.databinding.FragmentDetailBinding
 import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class DetailFragment : Fragment() {
     // propiedad es valida entre onCreateView y onDestroyView
     private var _binding: FragmentDetailBinding? = null

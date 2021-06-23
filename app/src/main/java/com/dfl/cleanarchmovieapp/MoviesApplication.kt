@@ -1,7 +1,19 @@
 package com.dfl.cleanarchmovieapp
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.dfl.cleanarchmovieapp.di.components.AppComponent
+import com.dfl.cleanarchmovieapp.di.components.DaggerAppComponent
 
-@HiltAndroidApp
-open class MoviesApplication : Application()
+open class MoviesApplication : Application() {
+
+    lateinit var component: AppComponent
+        private set
+
+    override fun onCreate() {
+        super.onCreate()
+
+        component = initMoviesComponent()
+    }
+
+    open fun initMoviesComponent() = DaggerAppComponent.factory().create(this)
+}

@@ -1,26 +1,30 @@
 package com.dfl.cleanarchmovieapp.presentation.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dfl.cleanarchmovieapp.databinding.FragmentListMovieBinding
-import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
-import dagger.hilt.android.AndroidEntryPoint
+import com.dfl.cleanarchmovieapp.di.modules.ListFragmentComponent
+import com.dfl.cleanarchmovieapp.di.modules.ListFragmentModule
+import com.dfl.cleanarchmovieapp.presentation.vm.app
+import com.dfl.cleanarchmovieapp.presentation.vm.getViewModel
 
-@AndroidEntryPoint
 class ListMovieFragment : Fragment() {
 
     // propiedad es valida entre onCreateView y onDestroyView
     private var _binding: FragmentListMovieBinding? = null
 
     private val binding get() = _binding!!
-    private val viewModel: ManagementMoviesVM by activityViewModels()
+
+    private lateinit var component: ListFragmentComponent
+    private val viewModel by lazy { requireActivity().getViewModel { component.mainViewModel } }
+
     private val adapterMovies = ListMovieAdapter(::goToDetail)
 
     override fun onCreateView(
@@ -29,6 +33,11 @@ class ListMovieFragment : Fragment() {
     ): View {
         _binding = FragmentListMovieBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        component = context.app.component.plus(ListFragmentModule())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -6,16 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dfl.cleanarchmovieapp.domain.model.Movie
-import com.dfl.cleanarchmovieapp.domain.usecase.GetMovies
+import com.dfl.cleanarchmovieapp.domain.usecase.UseCaseMovies
 import com.dfl.cleanarchmovieapp.utils.Constants.TRACK_INFO
 import com.dfl.cleanarchmovieapp.utils.DataResult
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class ManagementMoviesVM @Inject constructor(
-    private val getUseCaseMovies: GetMovies
+class ManagementMoviesVM(
+    private val getUseCaseMovies: UseCaseMovies
 ) : ViewModel() {
 
     private val _load = MutableLiveData<Boolean>()

@@ -1,15 +1,13 @@
-package com.dfl.cleanarchmovieapp.di
+package com.dfl.cleanarchmovieapp.di.modules
 
 import com.dfl.cleanarchmovieapp.data.IDataSource
 import com.dfl.cleanarchmovieapp.data.MoviesRepository
+import com.dfl.cleanarchmovieapp.domain.usecase.UseCaseMovies
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
 import javax.inject.Named
 
 @Module
-@InstallIn(SingletonComponent::class)
 class AppModule {
 
     @Provides
@@ -19,5 +17,10 @@ class AppModule {
         @Named("remote")
         remoteDataSource: IDataSource
     ) = MoviesRepository(localDataSource, remoteDataSource)
+
+    @Provides
+    fun useCaseMoviesProvider(
+        repo: MoviesRepository
+    ) = UseCaseMovies(repo)
 
 }

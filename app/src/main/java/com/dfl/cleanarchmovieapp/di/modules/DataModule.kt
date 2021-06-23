@@ -1,4 +1,4 @@
-package com.dfl.cleanarchmovieapp.di
+package com.dfl.cleanarchmovieapp.di.modules
 
 import android.app.Application
 import androidx.room.Room
@@ -9,13 +9,10 @@ import com.dfl.cleanarchmovieapp.data.local.dbsqlite.RoomDBDataSource
 import com.dfl.cleanarchmovieapp.data.remote.ServerDataSource
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
 import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class)
 class DataModule {
 
     @Provides

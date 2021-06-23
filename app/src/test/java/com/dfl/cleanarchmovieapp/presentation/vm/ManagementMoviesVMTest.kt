@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.dfl.cleanarchmovieapp.data.FakeLocalProvider
 import com.dfl.cleanarchmovieapp.data.MoviesRepository
 import com.dfl.cleanarchmovieapp.domain.model.Movie
-import com.dfl.cleanarchmovieapp.domain.usecase.GetMovies
+import com.dfl.cleanarchmovieapp.domain.usecase.UseCaseMovies
 import com.dfl.cleanarchmovieapp.getOrAwaitValueTest
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.Dispatchers
@@ -35,7 +35,7 @@ class ManagementMoviesVMTest {
     fun setup() {
         Dispatchers.setMain(dispatcher)
         viewModel = ManagementMoviesVM(
-            GetMovies(
+            UseCaseMovies(
                 MoviesRepository(
                     FakeLocalProvider(),
                     FakeLocalProvider()
