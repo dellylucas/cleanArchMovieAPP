@@ -23,6 +23,7 @@ usando componentes de AndroidX
 * Retrofit
 * ORM usando Room
 * Databinding
+* kotlin DSL
 
 Se emplearon pruebas unitarias, de integracion entre componentes e instrumentadas 
 * JUnit

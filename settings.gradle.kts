@@ -1,2 +1,2 @@
 rootProject.name = "cleanArchMovieAPP"
-include ':app'
+include (":app")
