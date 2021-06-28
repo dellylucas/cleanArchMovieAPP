@@ -36,6 +36,7 @@ class ManagementMoviesVM @Inject constructor(
      * Obtener todas las peliculas
      */
     fun getAllMovies() {
+        Log.d(TRACK_INFO, "VM: get all movies")
         viewModelScope.launch {
             _load.value = true
 
@@ -57,6 +58,7 @@ class ManagementMoviesVM @Inject constructor(
         val itemVisibleForCharge = (_movies.value?.count() ?: 0) - fileBeforeCharge
         //si faltan como minimo 6 peliculas por mostrar carga nuevas
         if (itemVisibleForCharge <= visibleNumber && _load.value == false) {
+            Log.d(TRACK_INFO, "VM: get new movies $page")
             _load.value = true
             viewModelScope.launch {
                 when (val result = getUseCaseMovies.getMoviesByPage(page)) {
@@ -75,6 +77,7 @@ class ManagementMoviesVM @Inject constructor(
      * Obtener pelicula por identificador
      */
     fun getMovieById(id: Int) {
+        Log.d(TRACK_INFO, "VM: get movie id $id")
         viewModelScope.launch {
             _load.value = true
             _currentMovie.value = getUseCaseMovies.getMovieById(id)

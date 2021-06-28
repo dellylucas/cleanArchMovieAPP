@@ -1,6 +1,8 @@
 package com.dfl.cleanarchmovieapp.data
 
+import android.util.Log
 import com.dfl.cleanarchmovieapp.domain.model.Movie
+import com.dfl.cleanarchmovieapp.utils.Constants
 import com.dfl.cleanarchmovieapp.utils.DataResult
 
 class MoviesRepository(
@@ -11,9 +13,12 @@ class MoviesRepository(
      * Obtiene todas las peliculas de la fuente de datos
      */
     suspend fun getMovies(): DataResult<List<Movie>> {
+
+        Log.d(Constants.TRACK_INFO, "Repo: get all movies local")
         var result = getLocalMovies()
         //si el resultado obtenido en DB local es vacio busca en remoto
         if (result is DataResult.Success && result.data.isEmpty()) {
+            Log.d(Constants.TRACK_INFO, "Repo: get all movies remote")
             result = getRemoteMovies()
             saveMovies(result)
         }
@@ -24,6 +29,7 @@ class MoviesRepository(
      * Obtiene todas las peliculas de la fuente de datos
      */
     suspend fun getMovies(page: Int): DataResult<List<Movie>> {
+        Log.d(Constants.TRACK_INFO, "Repo: get  movies remote page $page")
         val result = getRemoteMovies(page)
         saveMovies(result, page)
         return result
@@ -32,13 +38,16 @@ class MoviesRepository(
     /**
      * Obtiene una pelicula de la fuente de datos local por ID
      */
-    suspend fun getMovieById(id: Int): Movie =
-        (localDataSource.getMovieById(id) as DataResult.Success).data
+    suspend fun getMovieById(id: Int): Movie {
+        Log.d(Constants.TRACK_INFO, "Repo: get movie local id $id")
+        return (localDataSource.getMovieById(id) as DataResult.Success).data
+    }
 
     /**
      * si se obtienen peliculas por fuente remota se guardan en BD local
      */
     private suspend fun saveMovies(result: DataResult<List<Movie>>, page: Int = 1) {
+        Log.d(Constants.TRACK_INFO, "Repo: save movies remote page $page")
         if (result is DataResult.Success)
             localDataSource.saveMovies(result.data, page)
     }
