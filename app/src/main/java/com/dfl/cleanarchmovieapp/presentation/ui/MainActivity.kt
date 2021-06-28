@@ -7,20 +7,13 @@ import com.dfl.cleanarchmovieapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), IBaseActivity {
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-    }
-
-    override fun setLoading(isVisible: Boolean) {
-        val visibility = if (isVisible) View.VISIBLE else View.GONE
-        binding.backgroundView.visibility = visibility
-        binding.animationView.visibility = visibility
     }
 }

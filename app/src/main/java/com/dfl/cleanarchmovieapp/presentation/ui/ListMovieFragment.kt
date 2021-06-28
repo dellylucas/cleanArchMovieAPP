@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dfl.cleanarchmovieapp.databinding.FragmentListMovieBinding
 import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
+import com.dfl.cleanarchmovieapp.utils.setVisibility
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,7 +42,7 @@ class ListMovieFragment : Fragment() {
             adapterMovies.submitList(movies)
         })
         viewModel.load.observe(viewLifecycleOwner, {
-            (activity as IBaseActivity).setLoading(it)
+            binding.animationLoading.setVisibility(it)
         })
         binding.moviesRecyclerView.addOnScrollListener(onScrollListener())
     }

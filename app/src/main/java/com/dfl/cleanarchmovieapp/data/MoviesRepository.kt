@@ -14,8 +14,8 @@ class MoviesRepository(
         var result = getLocalMovies()
         //si el resultado obtenido en DB local es vacio busca en remoto
         if (result is DataResult.Success && result.data.isEmpty()) {
-            result = getRemoteMovies(1)
-            saveMovies(result, 1)
+            result = getRemoteMovies()
+            saveMovies(result)
         }
         return result
     }
@@ -38,15 +38,15 @@ class MoviesRepository(
     /**
      * si se obtienen peliculas por fuente remota se guardan en BD local
      */
-    private suspend fun saveMovies(result: DataResult<List<Movie>>, page: Int) {
+    private suspend fun saveMovies(result: DataResult<List<Movie>>, page: Int = 1) {
         if (result is DataResult.Success)
             localDataSource.saveMovies(result.data, page)
     }
 
     private suspend fun getLocalMovies(): DataResult<List<Movie>> =
-        localDataSource.getMovies(1)
+        localDataSource.getMovies()
 
-    private suspend fun getRemoteMovies(page: Int): DataResult<List<Movie>> =
+    private suspend fun getRemoteMovies(page: Int = 1): DataResult<List<Movie>> =
         remoteDataSource.getMovies(page)
 
 }
