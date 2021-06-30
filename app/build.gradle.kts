@@ -50,6 +50,11 @@ android {
 
 dependencies {
 
+    implementation(project(":usecasesmodule"))
+    implementation(project(":model"))
+    implementation(project(":datamodule"))
+    implementation(project(":sharedModule"))
+
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
     implementation("androidx.appcompat:appcompat:${Versions.appcompat}")
     implementation("androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}")
@@ -68,11 +73,6 @@ dependencies {
     // Feature module Support
     implementation("androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigation}")
 
-    // retrofit
-    implementation("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
-    implementation("com.squareup.retrofit2:converter-gson:${Versions.retrofit}")
-    //interceptor
-    implementation("com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}")
 
     //room
     implementation("androidx.room:room-runtime:${Versions.room}")
@@ -85,7 +85,7 @@ dependencies {
 
     //glide
     implementation("com.github.bumptech.glide:glide:${Versions.glide}")
-    annotationProcessor("com.github.bumptech.glide:compiler:${Versions.glide}")
+    kapt("com.github.bumptech.glide:compiler:${Versions.glide}")
 
     //test
     testImplementation("junit:junit:${Versions.junit}")
@@ -101,5 +101,5 @@ dependencies {
 
     // For local unit tests
     testImplementation("com.google.dagger:hilt-android-testing:2.37")
-    testAnnotationProcessor("com.google.dagger:hilt-compiler:2.37")
+   // testAnnotationProcessor("com.google.dagger:hilt-compiler:2.37")
 }

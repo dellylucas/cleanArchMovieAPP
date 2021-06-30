@@ -7,7 +7,7 @@ Aplicacion Android sobre una lista-detalle de peliculas populares consumiendo AP
 [themoviedb](https://developers.themoviedb.org/3/movies/get-popular-movies)  <-- API
 
 
-Tiene una arquitectura Clean de la siguiente forma
+Tiene una arquitectura Clean, modularizada de la siguiente forma
 
 <img src="https://user-images.githubusercontent.com/21035435/69536839-9f4c8e80-0fa0-11ea-85ee-d7823e5a46b0.png" width="600">
 

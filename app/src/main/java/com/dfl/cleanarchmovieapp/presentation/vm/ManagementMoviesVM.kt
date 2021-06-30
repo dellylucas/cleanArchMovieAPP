@@ -5,10 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dfl.cleanarchmovieapp.domain.model.Movie
-import com.dfl.cleanarchmovieapp.domain.usecase.GetMovies
-import com.dfl.cleanarchmovieapp.utils.Constants.TRACK_INFO
-import com.dfl.cleanarchmovieapp.utils.DataResult
+import com.dfl.model.Movie
+import com.dfl.usecasesmodule.GetMovies
+import com.dfl.sharedmodule.Constants.TRACK_INFO
+import com.dfl.sharedmodule.DataResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.dfl.cleanarchmovieapp.presentation.ui
+package com.dfl.cleanarchmovieapp.presentation.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.dfl.cleanarchmovieapp.databinding.AdapterListMovieBinding
-import com.dfl.cleanarchmovieapp.domain.model.Movie
-import com.dfl.cleanarchmovieapp.utils.Constants.BASE_URL_MOVIES_DB_IMAGE
+import com.dfl.model.Movie
+import com.dfl.sharedmodule.Constants.BASE_URL_MOVIES_DB_IMAGE
 import com.dfl.cleanarchmovieapp.utils.loadUrl
 
 class ListMovieAdapter(val listener: (Int) -> Unit) :

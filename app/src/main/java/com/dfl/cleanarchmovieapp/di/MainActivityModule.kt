@@ -1,7 +1,7 @@
 package com.dfl.cleanarchmovieapp.di
 
-import com.dfl.cleanarchmovieapp.data.MoviesRepository
-import com.dfl.cleanarchmovieapp.domain.usecase.GetMovies
+import com.dfl.datamodule.MoviesRepository
+import com.dfl.usecasesmodule.GetMovies
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

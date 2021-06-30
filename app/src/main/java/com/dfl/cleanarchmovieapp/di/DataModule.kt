@@ -3,10 +3,10 @@ package com.dfl.cleanarchmovieapp.di
 import android.app.Application
 import androidx.room.Room
 import com.dfl.cleanarchmovieapp.BuildConfig
-import com.dfl.cleanarchmovieapp.data.IDataSource
-import com.dfl.cleanarchmovieapp.data.local.dbsqlite.DataBase
-import com.dfl.cleanarchmovieapp.data.local.dbsqlite.RoomDBDataSource
-import com.dfl.cleanarchmovieapp.data.remote.ServerDataSource
+import com.dfl.datamodule.IDataSource
+import com.dfl.datamodule.dbsqlite.DataBase
+import com.dfl.datamodule.dbsqlite.RoomDBDataSource
+import com.dfl.datamodule.remote.ServerDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

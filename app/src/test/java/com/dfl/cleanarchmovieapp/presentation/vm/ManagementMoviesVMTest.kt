@@ -2,9 +2,9 @@ package com.dfl.cleanarchmovieapp.presentation.vm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.dfl.cleanarchmovieapp.data.FakeLocalProvider
-import com.dfl.cleanarchmovieapp.data.MoviesRepository
-import com.dfl.cleanarchmovieapp.domain.model.Movie
-import com.dfl.cleanarchmovieapp.domain.usecase.GetMovies
+import com.dfl.data.MoviesRepository
+import com.dfl.model.Movie
+import com.dfl.usecase.GetMovies
 import com.dfl.cleanarchmovieapp.getOrAwaitValueTest
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.Dispatchers

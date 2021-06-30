@@ -6,7 +6,7 @@
 
         <variable
             name="movie"
-            type="com.dfl.cleanarchmovieapp.domain.model.Movie" />
+            type="com.dfl.model.Movie" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat

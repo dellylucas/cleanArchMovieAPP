@@ -1,9 +1,8 @@
 package com.dfl.cleanarchmovieapp
 
-import com.dfl.cleanarchmovieapp.data.MoviesRepository
-import com.dfl.cleanarchmovieapp.data.local.dbsqlite.RoomDBDataSource
-import com.dfl.cleanarchmovieapp.data.remote.ServerDataSource
-import com.dfl.cleanarchmovieapp.utils.DataResult
+import com.dfl.data.MoviesRepository
+import com.dfl.datamod.dbsqlite.RoomDBDataSource
+import com.dfl.datamod.remote.ServerDataSource
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -29,7 +28,7 @@ class Test {
       /*  coEvery { providerServer.getMovies(1) } returns DataResult.Error(Exception(""))
         repo.getMovies()
         coVerify { providerDb.getMovies(1) }*/
-        coEvery {  providerServer.getMovies(1) } returns DataResult.Error(Exception(""))
+        coEvery {  providerServer.getMovies(1) } returns com.dfl.sharedmodule.DataResult.Error(Exception(""))
 
         providerServer.getMovies(1)
         coVerify { providerServer.getMovies(1)}

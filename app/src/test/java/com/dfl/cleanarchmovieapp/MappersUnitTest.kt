@@ -1,9 +1,9 @@
 package com.dfl.cleanarchmovieapp
 
-import com.dfl.cleanarchmovieapp.data.local.dbsqlite.MovieEntity
-import com.dfl.cleanarchmovieapp.data.mapper.MovieMap
+import com.dfl.datamod.dbsqlite.MovieEntity
+import com.dfl.datamod.mapper.MovieMap
 import com.dfl.cleanarchmovieapp.data.remote.MovieRemote
-import com.dfl.cleanarchmovieapp.domain.model.Movie
+import com.dfl.usecase.model.Movie
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

@@ -1,12 +1,12 @@
 package com.dfl.cleanarchmovieapp.data
 
-import com.dfl.cleanarchmovieapp.domain.model.Movie
-import com.dfl.cleanarchmovieapp.utils.DataResult
+import com.dfl.data.IDataSource
+import com.dfl.usecase.model.Movie
 
 class FakeLocalProvider : IDataSource {
 
-    override suspend fun getMovies(page: Int): DataResult<List<Movie>> =
-        DataResult.Success(
+    override suspend fun getMovies(page: Int): com.dfl.sharedmodule.DataResult<List<Movie>> =
+        com.dfl.sharedmodule.DataResult.Success(
             listOf(
                 Movie(1, "osos", "", ""),
                 Movie(2, "pez", "", ""),
@@ -14,8 +14,8 @@ class FakeLocalProvider : IDataSource {
             )
         )
 
-    override suspend fun getMovieById(id: Int): DataResult<Movie> =
-        DataResult.Success(
+    override suspend fun getMovieById(id: Int): com.dfl.sharedmodule.DataResult<Movie> =
+        com.dfl.sharedmodule.DataResult.Success(
             listOf(
                 Movie(1, "osos", "", ""),
                 Movie(2, "perro", "", "")

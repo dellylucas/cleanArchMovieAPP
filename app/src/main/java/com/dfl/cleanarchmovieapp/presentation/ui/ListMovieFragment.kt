@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dfl.cleanarchmovieapp.databinding.FragmentListMovieBinding
+import com.dfl.cleanarchmovieapp.presentation.ui.adapter.ListMovieAdapter
 import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
 import com.dfl.cleanarchmovieapp.utils.setVisibility
 import dagger.hilt.android.AndroidEntryPoint

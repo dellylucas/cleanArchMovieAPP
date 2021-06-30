@@ -1,7 +1,7 @@
 package com.dfl.cleanarchmovieapp.di
 
-import com.dfl.cleanarchmovieapp.data.IDataSource
-import com.dfl.cleanarchmovieapp.data.MoviesRepository
+import com.dfl.datamodule.IDataSource
+import com.dfl.datamodule.MoviesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
