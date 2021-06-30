@@ -2,10 +2,10 @@ package com.dfl.cleanarchmovieapp.presentation.vm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.dfl.cleanarchmovieapp.data.FakeLocalProvider
-import com.dfl.data.MoviesRepository
 import com.dfl.model.Movie
-import com.dfl.usecase.GetMovies
-import com.dfl.cleanarchmovieapp.getOrAwaitValueTest
+import com.dfl.cleanarchmovieapp.testutils.getOrAwaitValueTest
+import com.dfl.datamodule.MoviesRepository
+import com.dfl.usecasesmodule.GetMovies
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -1,4 +1,4 @@
-package com.dfl.cleanarchmovieapp
+package com.dfl.cleanarchmovieapp.testutils
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData

@@ -1,7 +1,7 @@
 package com.dfl.cleanarchmovieapp.data
 
-import com.dfl.data.IDataSource
-import com.dfl.usecase.model.Movie
+import com.dfl.datamodule.IDataSource
+import com.dfl.model.Movie
 
 class FakeLocalProvider : IDataSource {
 

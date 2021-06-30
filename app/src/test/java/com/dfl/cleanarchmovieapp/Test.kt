@@ -1,8 +1,8 @@
 package com.dfl.cleanarchmovieapp
 
-import com.dfl.data.MoviesRepository
-import com.dfl.datamod.dbsqlite.RoomDBDataSource
-import com.dfl.datamod.remote.ServerDataSource
+import com.dfl.datamodule.MoviesRepository
+import com.dfl.datamodule.dbsqlite.RoomDBDataSource
+import com.dfl.datamodule.remote.ServerDataSource
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
