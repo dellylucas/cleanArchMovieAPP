@@ -21,7 +21,7 @@ class ListMovieFragment : Fragment() {
     // propiedad es valida entre onCreateView y onDestroyView
     private var _binding: FragmentListMovieBinding? = null
 
-    val binding get() = _binding!!
+    private val binding get() = _binding!!
     private val viewModel: ManagementMoviesVM by activityViewModels()
     private val adapterMovies = ListMovieAdapter(::goToDetail)
 

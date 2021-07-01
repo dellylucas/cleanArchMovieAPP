@@ -10,50 +10,53 @@
             type="com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM" />
     </data>
 
-    <ScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         tools:context=".presentation.ui.DetailFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/detailImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@{viewModel.currentMovie.posterPath}"
+            tools:src="@drawable/image_test" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:drawable/screen_background_dark_transparent"
+            android:orientation="vertical"
             tools:context=".presentation.ui.DetailFragment">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/detailImage"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:scaleType="centerCrop"
-                android:src="@{viewModel.currentMovie.posterPath}"
-                app:layout_constraintBottom_toTopOf="@id/guideline"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/image_test" />
-
-            <TextView
-                android:id="@+id/titleTextView"
-                style="@style/detail_style"
-                android:text="@{viewModel.currentMovie.name}"
-                android:textSize="25sp"
-                app:layout_constraintTop_toBottomOf="@id/detailImage"
-                tools:text="@string/hello_blank_fragment" />
-
-            <TextView
-                android:id="@+id/detailTextView"
-                style="@style/detail_style"
-                android:text="@{viewModel.currentMovie.description }"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/titleTextView"
-                tools:text="@string/hello_blank_fragment" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.5" />
+                android:layout_margin="30dp"
+                tools:context=".presentation.ui.DetailFragment">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+                <TextView
+                    android:id="@+id/titleTextView"
+                    style="@style/detail_style"
+                    android:text="@{viewModel.currentMovie.name}"
+                    android:textSize="25sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/hello_blank_fragment" />
+
+                <TextView
+                    android:id="@+id/detailTextView"
+                    style="@style/detail_style"
+                    android:text="@{viewModel.currentMovie.description}"
+                    android:textSize="20sp"
+                    app:layout_constraintTop_toBottomOf="@id/titleTextView"
+                    tools:text="@string/hello_blank_fragment" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
