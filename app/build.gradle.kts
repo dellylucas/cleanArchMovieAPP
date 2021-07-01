@@ -76,7 +76,6 @@ dependencies {
 
     //room
     implementation("androidx.room:room-runtime:${Versions.room}")
-    kapt("androidx.room:room-compiler:${Versions.room}")
 
     //lottie animation
     implementation("com.airbnb.android:lottie:${Versions.lottie}")

@@ -2,6 +2,7 @@ object Versions {
     const val kotlin = "1.5.10"
     const val appcompat = "1.3.0"
     const val constraintlayout = "2.0.4"
+    const val coroutines = "1.4.3"
     const val lifecycle = "2.2.0"
     const val lifecycle_ktx = "2.3.1"
     const val activity_ktx = "1.2.3"

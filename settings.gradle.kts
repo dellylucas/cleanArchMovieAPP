@@ -1,6 +1,8 @@
 rootProject.name = "cleanArchMovieAPP"
-include (":app")
-include(":sharedModule")
-include(":model")
-include(":datamodule")
-include(":usecasesmodule")
+include(
+    ":app",
+    ":sharedModule",
+    ":model",
+    ":datamodule",
+    ":usecasesmodule"
+)
