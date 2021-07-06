@@ -5,11 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.dfl.model.Movie
-import com.dfl.usecasesmodule.GetMovies
 import com.dfl.sharedmodule.Constants.TRACK_INFO
 import com.dfl.sharedmodule.DataResult
+import com.dfl.usecasesmodule.GetMovies
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,56 +25,20 @@ class ManagementMoviesVM @Inject constructor(
     val load: LiveData<Boolean>
         get() = _load
 
-    private val _movies = MutableLiveData<List<Movie>>()
-    val movies: LiveData<List<Movie>>
-        get() = _movies
 
     private val _currentMovie = MutableLiveData<Movie>()
     val currentMovie: LiveData<Movie>
         get() = _currentMovie
 
-    private var page: Int = 2
-
     /**
      * Obtener todas las peliculas
      */
-    fun getAllMovies() {
+    fun getAllMovies(): Flow<PagingData<Movie>> {
         Log.d(TRACK_INFO, "VM: get all movies")
-        viewModelScope.launch {
-            _load.value = true
-
-            when (val result = getUseCaseMovies.getAllMovies()) {
-                is DataResult.Error -> Log.d(TRACK_INFO, "error: " + result.exception.message)
-                is DataResult.Success -> _movies.value = result.data
-            }
-            _load.value = false
-        }
+        return getUseCaseMovies.getAllMovies()
+            .cachedIn(viewModelScope)
     }
 
-    /**
-     * obtiene nuevas peliculas de la fuente remota al
-     * detectar la visualizacion de las ultimas en la vista para saber si
-     * traer nuevas
-     */
-    fun getNewMovies(visibleNumber: Int) {
-        val fileBeforeCharge = 6
-        val itemVisibleForCharge = (_movies.value?.count() ?: 0) - fileBeforeCharge
-        //si faltan como minimo 6 peliculas por mostrar carga nuevas
-        if (itemVisibleForCharge <= visibleNumber && _load.value == false) {
-            Log.d(TRACK_INFO, "VM: get new movies $page")
-            _load.value = true
-            viewModelScope.launch {
-                when (val result = getUseCaseMovies.getMoviesByPage(page)) {
-                    is DataResult.Error -> Log.d(TRACK_INFO, "error: " + result.exception.message)
-                    is DataResult.Success -> {
-                        page = result.data.first().page
-                        _movies.postValue(_movies.value?.plus(result.data))
-                    }
-                }
-                _load.value = false
-            }
-        }
-    }
 
     /**
      * Obtener pelicula por identificador

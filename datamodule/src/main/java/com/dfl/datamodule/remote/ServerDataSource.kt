@@ -1,11 +1,11 @@
 package com.dfl.datamodule.remote
 
-import com.dfl.datamodule.IDataSource
+import com.dfl.datamodule.IDataSourceRemote
 import com.dfl.datamodule.mapper.MovieMap
 import com.dfl.model.Movie
 import com.dfl.sharedmodule.DataResult
 
-class ServerDataSource(private val apiKey: String) : IDataSource {
+class ServerDataSource(private val apiKey: String) : IDataSourceRemote {
 
     override suspend fun getMovies(page: Int): DataResult<List<Movie>> {
 
@@ -18,10 +18,6 @@ class ServerDataSource(private val apiKey: String) : IDataSource {
         return if (result.isSuccessful && result.body() != null)
             DataResult.Success(MovieMap.getItems(result.body()!!.results,page))
         else DataResult.Error(Exception(result.message() + " " + result.code()))
-    }
-
-    override suspend fun getMovieById(id: Int): DataResult<Movie> {
-        TODO("Not yet implemented")
     }
 
 }

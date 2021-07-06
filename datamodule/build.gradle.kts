@@ -38,6 +38,7 @@ dependencies {
 
     implementation("androidx.room:room-runtime:${Versions.room}")
     kapt("androidx.room:room-compiler:${Versions.room}")
+    implementation ("androidx.room:room-ktx:${Versions.room}")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}")
     // retrofit
@@ -52,4 +53,6 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:${Versions.ext_junit}")
     androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.espresso}")
 
+    //paging
+    implementation("androidx.paging:paging-runtime-ktx:${Versions.paging}")
 }

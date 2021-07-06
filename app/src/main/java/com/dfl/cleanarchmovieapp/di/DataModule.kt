@@ -3,7 +3,8 @@ package com.dfl.cleanarchmovieapp.di
 import android.app.Application
 import androidx.room.Room
 import com.dfl.cleanarchmovieapp.BuildConfig
-import com.dfl.datamodule.IDataSource
+import com.dfl.datamodule.IDataSourceLocal
+import com.dfl.datamodule.IDataSourceRemote
 import com.dfl.datamodule.dbsqlite.DataBase
 import com.dfl.datamodule.dbsqlite.RoomDBDataSource
 import com.dfl.datamodule.remote.ServerDataSource
@@ -35,9 +36,9 @@ class DataModule {
     @Named("remote")
     fun remoteDataSourceProvider(
         @Named("apiKey") key: String
-    ): IDataSource = ServerDataSource(key)
+    ): IDataSourceRemote = ServerDataSource(key)
 
     @Provides
     @Named("local")
-    fun roomDataSourceProvider(db: DataBase): IDataSource = RoomDBDataSource(db)
+    fun roomDataSourceProvider(db: DataBase): IDataSourceLocal = RoomDBDataSource(db)
 }

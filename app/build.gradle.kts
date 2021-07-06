@@ -80,11 +80,12 @@ dependencies {
     //lottie animation
     implementation("com.airbnb.android:lottie:${Versions.lottie}")
 
-    implementation("androidx.paging:paging-runtime-ktx:${Versions.paging}")
-
     //glide
     implementation("com.github.bumptech.glide:glide:${Versions.glide}")
     kapt("com.github.bumptech.glide:compiler:${Versions.glide}")
+
+    //paging
+    implementation("androidx.paging:paging-runtime-ktx:${Versions.paging}")
 
     //test
     testImplementation("junit:junit:${Versions.junit}")

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,9 @@ import com.dfl.cleanarchmovieapp.presentation.ui.adapter.ListMovieAdapter
 import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
 import com.dfl.cleanarchmovieapp.utils.setVisibility
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ListMovieFragment : Fragment() {
@@ -24,6 +28,7 @@ class ListMovieFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: ManagementMoviesVM by activityViewModels()
     private val adapterMovies = ListMovieAdapter(::goToDetail)
+    private var searchJob: Job? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,27 +43,24 @@ class ListMovieFragment : Fragment() {
 
         binding.moviesRecyclerView.adapter = adapterMovies
 
-        viewModel.getAllMovies()
-        viewModel.movies.observe(viewLifecycleOwner, { movies ->
-            adapterMovies.submitList(movies)
-        })
-        viewModel.load.observe(viewLifecycleOwner, {
-            binding.animationLoading.setVisibility(it)
-        })
-        binding.moviesRecyclerView.addOnScrollListener(onScrollListener())
+        searchJob?.cancel()
+        searchJob = lifecycleScope.launch {
+            viewModel.getAllMovies().collectLatest {
+                adapterMovies.submitData(it)
+            }
+        }
     }
-
     /**
      * Scroll para detectar ultimo item y cargar nuevos elementos
      */
-    private fun onScrollListener() = object : RecyclerView.OnScrollListener() {
+  /*  private fun onScrollListener() = object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
             val lastItemVisible =
                 (recyclerView.layoutManager as GridLayoutManager).findLastVisibleItemPosition()
             viewModel.getNewMovies(lastItemVisible)
         }
-    }
+    }*/
 
     /**+
      * navegacion hacia el detalle de una pelicula seleccionada

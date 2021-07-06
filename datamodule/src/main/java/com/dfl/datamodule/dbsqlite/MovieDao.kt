@@ -1,5 +1,6 @@
 package com.dfl.datamodule.dbsqlite
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -9,7 +10,7 @@ import androidx.room.Query
 interface MovieDao {
 
     @Query("SELECT * FROM MovieEntity")
-    fun getAllMovies(): List<MovieEntity>
+    fun getAllMovies(): PagingSource<Int, MovieEntity>
 
     @Query("SELECT * FROM MovieEntity WHERE id = :id")
     fun findById(id: Int): MovieEntity

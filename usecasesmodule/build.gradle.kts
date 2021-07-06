@@ -35,6 +35,10 @@ dependencies {
     implementation ("androidx.appcompat:appcompat:1.3.0")
     implementation ("com.google.android.material:material:1.3.0")
 
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}")
+    //paging
+    implementation("androidx.paging:paging-runtime-ktx:${Versions.paging}")
+
     //test
     testImplementation ("junit:junit:4.13.2")
     androidTestImplementation ("androidx.test.ext:junit:1.1.2")

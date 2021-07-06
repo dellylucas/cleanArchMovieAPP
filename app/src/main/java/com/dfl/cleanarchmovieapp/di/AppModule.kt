@@ -1,6 +1,7 @@
 package com.dfl.cleanarchmovieapp.di
 
-import com.dfl.datamodule.IDataSource
+import com.dfl.datamodule.IDataSourceLocal
+import com.dfl.datamodule.IDataSourceRemote
 import com.dfl.datamodule.MoviesRepository
 import dagger.Module
 import dagger.Provides
@@ -15,9 +16,9 @@ class AppModule {
     @Provides
     fun moviesRepositoryProvider(
         @Named("local")
-        localDataSource: IDataSource,
+        localDataSource: IDataSourceLocal,
         @Named("remote")
-        remoteDataSource: IDataSource
+        remoteDataSource: IDataSourceRemote
     ) = MoviesRepository(localDataSource, remoteDataSource)
 
 }

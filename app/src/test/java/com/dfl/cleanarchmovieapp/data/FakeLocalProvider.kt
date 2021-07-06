@@ -1,9 +1,9 @@
 package com.dfl.cleanarchmovieapp.data
 
-import com.dfl.datamodule.IDataSource
+import com.dfl.datamodule.IDataSourceRemote
 import com.dfl.model.Movie
 
-class FakeLocalProvider : IDataSource {
+class FakeLocalProvider : IDataSourceRemote {
 
     override suspend fun getMovies(page: Int): com.dfl.sharedmodule.DataResult<List<Movie>> =
         com.dfl.sharedmodule.DataResult.Success(
