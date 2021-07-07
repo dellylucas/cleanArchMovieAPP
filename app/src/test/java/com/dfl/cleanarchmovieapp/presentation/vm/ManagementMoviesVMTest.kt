@@ -1,5 +1,6 @@
 package com.dfl.cleanarchmovieapp.presentation.vm
 
+import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.dfl.cleanarchmovieapp.data.FakeLocalProvider
 import com.dfl.model.Movie
@@ -7,6 +8,8 @@ import com.dfl.cleanarchmovieapp.testutils.getOrAwaitValueTest
 import com.dfl.datamodule.MoviesRepository
 import com.dfl.usecasesmodule.GetMovies
 import com.google.common.truth.Truth.assertThat
+import io.mockk.every
+import io.mockk.mockkStatic
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
@@ -26,6 +29,9 @@ class ManagementMoviesVMTest {
     @get:Rule
     var instantRule = InstantTaskExecutorRule()
 
+    private val movieTest=Movie(1, "osos", "", "")
+    private val movieTwoTest=Movie(2, "perro", "", "")
+
     @ExperimentalCoroutinesApi
     private val dispatcher = TestCoroutineDispatcher()
     private lateinit var viewModel: ManagementMoviesVM
@@ -33,6 +39,10 @@ class ManagementMoviesVMTest {
     @ExperimentalCoroutinesApi
     @Before
     fun setup() {
+
+        mockkStatic(Log::class)
+        every { Log.d(any(), any()) } returns 0
+
         Dispatchers.setMain(dispatcher)
         viewModel = ManagementMoviesVM(
             GetMovies(
@@ -49,17 +59,20 @@ class ManagementMoviesVMTest {
         viewModel.getAllMovies()
 
         val value = viewModel.movies.getOrAwaitValueTest()
-        assertThat(value.first()).isEqualTo(Movie(1, "osos", "", ""))
+        assertThat(value.first()).isEqualTo(movieTest)
     }
 
+    /**
+     * @see FakeLocalProvider
+     */
     @Test
     fun testIntegrationReturnMovieById() {
         val movieId = 2
         viewModel.getMovieById(movieId)
 
         val value = viewModel.currentMovie.getOrAwaitValueTest()
-        assertThat(value).isEqualTo(Movie(2, "perro", "", ""))
-        assertThat(value).isNotEqualTo(Movie(1, "osos", "", ""))
+        assertThat(value).isEqualTo(movieTwoTest)
+        assertThat(value).isNotEqualTo(movieTest)
     }
 
     @ExperimentalCoroutinesApi
