@@ -18,9 +18,9 @@ class RoomDBDataSource(private val db: DataBase) : IDataSourceLocal {
     override fun getMovies(): PagingSource<Int, MovieEntity> =
           movieDao.getAllMovies()
 
-    override suspend fun getMovieById(id: Int): MovieEntity = withContext(Dispatchers.IO) {
+    override suspend fun getMovieById(id: Int): MovieEntity =
         movieDao.findById(id)
-    }
+
 
     override suspend fun saveMovies(movies: List<MovieEntity>) {
         withContext(Dispatchers.IO) {

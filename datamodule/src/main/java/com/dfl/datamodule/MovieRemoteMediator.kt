@@ -4,8 +4,6 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import androidx.room.RoomDatabase
-import androidx.room.withTransaction
 import com.dfl.datamodule.dbsqlite.MovieEntity
 import com.dfl.datamodule.mapper.MovieMap
 import com.dfl.sharedmodule.DataResult
@@ -48,7 +46,7 @@ class MovieRemoteMediator(
                 val prevKey = remoteKeys?.page?.minus(1) ?: return MediatorResult.Success(
                     endOfPaginationReached = remoteKeys != null
                 )
-                prevKey
+                if (prevKey < GITHUB_STARTING_PAGE_INDEX) GITHUB_STARTING_PAGE_INDEX else prevKey
             }
             LoadType.APPEND -> {
                 val remoteKeys = getRemoteKeyForLastItem(state)
@@ -71,14 +69,12 @@ class MovieRemoteMediator(
 
             val movies = (apiResponse as DataResult.Success).data
             val endOfPaginationReached = movies.isEmpty()
-            (repoDatabase.getRootSource() as RoomDatabase).withTransaction {
-                // clear all tables in the database
-                /*if (loadType == LoadType.REFRESH) {
-                    repoDatabase.remoteKeysDao().clearRemoteKeys()
-                    repoDatabase.reposDao().clearRepos()
-                }*/
-                repoDatabase.saveMovies(MovieMap.getMoviesEntity(movies, page))
-            }
+            // clear all tables in the database
+            /*if (loadType == LoadType.REFRESH) {
+                repoDatabase.remoteKeysDao().clearRemoteKeys()
+                repoDatabase.reposDao().clearRepos()
+            }*/
+            repoDatabase.saveMovies(MovieMap.getMoviesEntity(movies, page))
             return MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
         } catch (exception: IOException) {
             return MediatorResult.Error(exception)
@@ -87,24 +83,16 @@ class MovieRemoteMediator(
         }
     }
 
-    private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, MovieEntity>): MovieEntity? {
+    private fun getRemoteKeyForLastItem(state: PagingState<Int, MovieEntity>): MovieEntity? {
         // Get the last page that was retrieved, that contained items.
         // From that last page, get the last item
-        return state.pages.lastOrNull() { it.data.isNotEmpty() }?.data?.lastOrNull()
-            ?.let { movie ->
-                // Get the remote keys of the last item retrieved
-                repoDatabase.getMovieById(movie.id)
-            }
+        return state.pages.lastOrNull { it.data.isNotEmpty() }?.data?.lastOrNull()
     }
 
-    private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, MovieEntity>): MovieEntity? {
+    private fun getRemoteKeyForFirstItem(state: PagingState<Int, MovieEntity>): MovieEntity? {
         // Get the first page that was retrieved, that contained items.
         // From that first page, get the first item
         return state.pages.firstOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()
-            ?.let { movie ->
-                // Get the remote keys of the first items retrieved
-                repoDatabase.getMovieById(movie.id)
-            }
     }
 
     private suspend fun getRemoteKeyClosestToCurrentPosition(

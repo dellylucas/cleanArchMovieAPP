@@ -1,14 +1,19 @@
 package com.dfl.datamodule
 
 import android.util.Log
-import androidx.paging.*
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import androidx.paging.map
 import com.dfl.datamodule.mapper.MovieMap
-import com.dfl.datamodule.mapper.MovieMap.getMovieFromEntity
 import com.dfl.model.Movie
 import com.dfl.sharedmodule.Constants
 import com.dfl.sharedmodule.DataResult
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 
 class MoviesRepository(
     private val localDataSource: IDataSourceLocal,
@@ -16,7 +21,7 @@ class MoviesRepository(
 ) {
 
     companion object {
-        private const val NETWORK_PAGE_SIZE = 50
+        private const val NETWORK_PAGE_SIZE = 20
     }
 
     /**
@@ -26,7 +31,6 @@ class MoviesRepository(
 
         Log.d(Constants.TRACK_INFO, "Repo: get all movies")
 
-        // appending '%' so we can allow other characters to be before and after the query string
         val pagingSourceFactory = { localDataSource.getMovies() }
 
         @OptIn(ExperimentalPagingApi::class)
@@ -43,7 +47,7 @@ class MoviesRepository(
             pagingSourceFactory = pagingSourceFactory
         ).flow.map { pagingData ->
             pagingData.map {
-                getMovieFromEntity(it)
+                MovieMap.getMovieFromEntity(it)
             }
         }
     }
@@ -63,7 +67,7 @@ class MoviesRepository(
      */
     suspend fun getMovieById(id: Int): Movie {
         Log.d(Constants.TRACK_INFO, "Repo: get movie local id $id")
-        return MovieMap.getMovieFromEntity(localDataSource.getMovieById(id))
+        return withContext(Dispatchers.IO) { MovieMap.getMovieFromEntity(localDataSource.getMovieById(id))}
     }
 
     /**

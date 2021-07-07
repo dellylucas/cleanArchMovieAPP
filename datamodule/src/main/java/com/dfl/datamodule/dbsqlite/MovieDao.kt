@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface MovieDao {
 
-    @Query("SELECT * FROM MovieEntity")
+    @Query("SELECT * FROM MovieEntity ORDER BY page, id")
     fun getAllMovies(): PagingSource<Int, MovieEntity>
 
     @Query("SELECT * FROM MovieEntity WHERE id = :id")
@@ -17,5 +17,8 @@ interface MovieDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertMovies(movies: List<MovieEntity>)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertMovie(movie: MovieEntity):Long
 
 }
