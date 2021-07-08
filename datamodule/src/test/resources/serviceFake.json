@@ -1,0 +1,412 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/620hnMVLu6RSZW6a5rwO8gqpt0t.jpg",
+      "genre_ids": [
+        16,
+        35,
+        10751,
+        14
+      ],
+      "id": 508943,
+      "original_language": "en",
+      "original_title": "Luca",
+      "overview": "Ambientada en un precioso pueblo costero de la Riviera italiana, narra la historia sobre el paso a la edad adulta de un chico que vive un verano inolvidable lleno de helados, pasta e infinitos paseos en scooter. Luca comparte estas aventuras con su nuevo mejor amigo, pero toda la diversión se ve amenazada por un secreto muy profundo: él es un monstruo marino de un mundo que yace bajo la superficie del agua.",
+      "popularity": 4280.651,
+      "poster_path": "/pr06RihHOGE3waZQx5fs2WYUdwr.jpg",
+      "release_date": "2021-06-17",
+      "title": "Luca",
+      "video": false,
+      "vote_average": 8.2,
+      "vote_count": 2239
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/wjQXZTlFM3PVEUmKf1sUajjygqT.jpg",
+      "genre_ids": [
+        878,
+        28,
+        53
+      ],
+      "id": 581726,
+      "original_language": "en",
+      "original_title": "Infinite",
+      "overview": "Evan McCauley tiene habilidades que nunca aprendió y recuerdos de lugares que nunca ha visitado. Automedicado y al borde de un colapso mental, un grupo secreto que se hace llamar \"Infinitos\" acuden a su rescate, revelando que sus recuerdos son reales.",
+      "popularity": 3960.978,
+      "poster_path": "/niw2AKHz6XmwiRMLWaoyAOAti0G.jpg",
+      "release_date": "2021-09-08",
+      "title": "Infinite",
+      "video": false,
+      "vote_average": 0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/nVKRspU9SQEs2gNrms8cDKsI4vx.jpg",
+      "genre_ids": [
+        28,
+        878
+      ],
+      "id": 588228,
+      "original_language": "en",
+      "original_title": "The Tomorrow War",
+      "overview": "Un día el mundo se paraliza cuando un grupo de viajeros en el tiempo se transporta desde el año 2051 para entregar un mensaje urgente: La humanidad está perdiendo la guerra mundial contra una especie alienígena letal. La única esperanza de supervivencia es que los soldados y los ciudadanos del presente sean transportados al futuro y se unan a la lucha. Entre los reclutados está el profesor de instituto y padre de familia Dan Forester (Chris Pratt) quien, decidido a salvar el mundo por su hija, se une a una brillante científica (Yvonne Strahovski) y a su padre (J.K. Simmons) en una búsqueda desesperada por reescribir el destino del planeta.",
+      "popularity": 2962.894,
+      "poster_path": "/tzp6VzED2TBc02bkYoYnQa6r2OK.jpg",
+      "release_date": "2021-07-02",
+      "title": "La guerra del mañana",
+      "video": false,
+      "vote_average": 8.5,
+      "vote_count": 1568
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xXHZeb1yhJvnSHPzZDqee0zfMb6.jpg",
+      "genre_ids": [
+        28,
+        12,
+        80,
+        53
+      ],
+      "id": 385128,
+      "original_language": "en",
+      "original_title": "F9",
+      "overview": "Dom Toretto lleva una vida tranquila con Letty y su hijo, el pequeño Brian, pero saben que el peligro siempre acecha. Esta vez, esa amenaza obligará a Dom a enfrentarse a los pecados de su pasado si quiere salvar a quienes más quiere. El equipo se vuelve a reunir para impedir un complot a escala mundial, liderado por uno de los asesinos más peligrosos y mejor conductor a los que se han enfrentado; un hombre que además es el hermano desaparecido de Dom, Jakob. Novena entrega de la famosa franquicia.",
+      "popularity": 2600.738,
+      "poster_path": "/vdRgVlkkw1eHOdgYKXbzj0qSLB0.jpg",
+      "release_date": "2021-05-19",
+      "title": "Fast & Furious 9",
+      "video": false,
+      "vote_average": 7.7,
+      "vote_count": 442
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/z2UtGA1WggESspi6KOXeo66lvLx.jpg",
+      "genre_ids": [
+        878,
+        53,
+        27
+      ],
+      "id": 520763,
+      "original_language": "en",
+      "original_title": "A Quiet Place Part II",
+      "overview": "Tras los fatales acontecimientos sucedidos en la primera parte, la familia Abbot debe enfrentarse a los peligros del mundo exterior mientras luchan en silencio por sobrevivir. Forzados a aventurarse en lo desconocido, pronto se dan cuenta de que las criaturas que cazan orientadas por el sonido no son la única amenaza que acecha más allá del camino de arena. Secuela de la exitosa producción \"Un lugar tranquilo\" (A Quiet Place, 2018).",
+      "popularity": 2223.63,
+      "poster_path": "/iNOCVFyrsykGqT48JNotgFF9XCf.jpg",
+      "release_date": "2021-05-21",
+      "title": "Un lugar tranquilo 2",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 1444
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6MKr3KgOLmzOP6MSuZERO41Lpkt.jpg",
+      "genre_ids": [
+        35,
+        80
+      ],
+      "id": 337404,
+      "original_language": "en",
+      "original_title": "Cruella",
+      "overview": "Ambientada en el Londres de los años 70, en plena revolución del punk rock, muestra a una joven estafadora llamada Estella, una chica inteligente y creativa, decidida a convertirse en una exitosa diseñadora de moda, que se asocia con un par de ladrones para sobrevivir en las calles de la capital británica. Pero cuando su talento para la moda llama la atención de la legendaria diseñadora, la Baronesa von Hellman, Estella cambia el rumbo de su vida hasta que una serie de acontecimientos y revelaciones que harán que Estella asuma su lado malvado y se convierta en la estridente, moderna y vengativa Cruella de Vil.",
+      "popularity": 1899.108,
+      "poster_path": "/5bsApWAUqb0jeXtHPjKQ6MZOtZJ.jpg",
+      "release_date": "2021-05-26",
+      "title": "Cruella",
+      "video": false,
+      "vote_average": 8.5,
+      "vote_count": 3802
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/70AV2Xx5FQYj20labp0EGdbjI6E.jpg",
+      "genre_ids": [
+        80,
+        28,
+        53
+      ],
+      "id": 637649,
+      "original_language": "en",
+      "original_title": "Wrath of Man",
+      "overview": "H (Jason Statham) es el misterioso tipo que acaba de incorporarse como guardia de seguridad en una compañía de blindados. Durante un intento de atraco a su camión, sorprende a sus compañeros mostrando habilidades de un soldado profesional, dejando al resto del equipo preguntándose quién es realmente y de dónde viene. Pronto se hará claro el verdadero motivo por el cual H está buscando un ajuste de cuentas.",
+      "popularity": 1834.075,
+      "poster_path": "/emM894kjspdQsHyTAF7sjRNlbTr.jpg",
+      "release_date": "2021-04-22",
+      "title": "Despierta la furia",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 1258
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/gX5UrH1TLVVBwI7WxplW43BD6Z1.jpg",
+      "genre_ids": [
+        16,
+        35,
+        12,
+        10751
+      ],
+      "id": 459151,
+      "original_language": "en",
+      "original_title": "The Boss Baby: Family Business",
+      "overview": "Los hermanos Templeton se han convertido en adultos y se han alejado el uno del otro, pero un nuevo jefe bebé con un enfoque de vanguardia está a punto de unirlos nuevamente e inspirar un nuevo negocio familiar.",
+      "popularity": 1795.62,
+      "poster_path": "/3XYeAnIdjTiHZehtKcNzsyBwtcz.jpg",
+      "release_date": "2021-07-01",
+      "title": "El Bebé Jefazo 2 Negocios de familia",
+      "video": false,
+      "vote_average": 8,
+      "vote_count": 288
+    },
+    {
+      "adult": false,
+      "backdrop_path": null,
+      "genre_ids": [
+        28,
+        80
+      ],
+      "id": 385687,
+      "original_language": "en",
+      "original_title": "Fast & Furious 10",
+      "overview": "Décima y penultima entrega de la franquicia central de Fast & Furious.  Se conoció el día martes 20 de octubre del 2020, que el final de esta saga de acción, autos y máxima adrenalina contará con Justin Lin como director de ambas películas.  Las cintas diez y once no supondrán, sin embargo, el final definitivo de ‘Fast & Furious’ sino solo el cierre de su trama central puesto que está previsto que se hagan películas derivadas que amplíen el universo narrativo de estas historias.",
+      "popularity": 1704.313,
+      "poster_path": "/2DyEk84XnbJEdPlGF43crxfdtHH.jpg",
+      "release_date": "2023-02-01",
+      "title": "Fast & Furious 10",
+      "video": false,
+      "vote_average": 0,
+      "vote_count": 0
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qi6Edc1OPcyENecGtz8TF0DUr9e.jpg",
+      "genre_ids": [
+        27,
+        9648,
+        53
+      ],
+      "id": 423108,
+      "original_language": "en",
+      "original_title": "The Conjuring: The Devil Made Me Do It",
+      "overview": "Los investigadores paranormales Ed y Lorraine Warren se encuentran con lo que se convertiría en uno de los casos más sensacionales de sus archivos. La lucha por el alma de un niño los lleva más allá de todo lo que habían visto antes, para marcar la primera vez en la historia de los Estados Unidos que un sospechoso de asesinato reclamaría posesión demoníaca como defensa.",
+      "popularity": 1306.296,
+      "poster_path": "/ghMQALCyytc6W0wlOlMIKiMSRKV.jpg",
+      "release_date": "2021-05-25",
+      "title": "Expediente Warren: Obligado por el demonio",
+      "video": false,
+      "vote_average": 8,
+      "vote_count": 2903
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9WlJFhOSCPnaaSmsrv0B4zA8iUb.jpg",
+      "genre_ids": [
+        28,
+        80,
+        878,
+        27,
+        53
+      ],
+      "id": 503736,
+      "original_language": "en",
+      "original_title": "Army of the Dead",
+      "overview": "Un grupo de mercenarios decide llevar a cabo el mayor atraco que jamás se haya realizado en la ciudad de Las Vegas justo después de que se produzca una epidemia de muertos vivientes. Para ello tendrán que adentrarse en una zona de cuarentena, con los riesgos que ello conlleva.",
+      "popularity": 1288.994,
+      "poster_path": "/4h1Uc13QPjHTTUX0bikICWUxTSV.jpg",
+      "release_date": "2021-05-14",
+      "title": "Ejército de los muertos",
+      "video": false,
+      "vote_average": 6.5,
+      "vote_count": 1821
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/vqEjXzWdzPbV2DZ7bk29weDFiDl.jpg",
+      "genre_ids": [
+        16,
+        12,
+        10751,
+        37
+      ],
+      "id": 637693,
+      "original_language": "en",
+      "original_title": "Spirit Untamed",
+      "overview": "La vida de Lucky Prescott cambia para siempre cuando se muda de su casa en la gran ciudad a un pequeño pueblo fronterizo en el que entabla amistad con un caballo salvaje llamado Spirit.",
+      "popularity": 1214.611,
+      "poster_path": "/efvHUZdBHDN7e4n1Ll3fn55GLA4.jpg",
+      "release_date": "2021-05-20",
+      "title": "Spirit - Indomable",
+      "video": false,
+      "vote_average": 7.7,
+      "vote_count": 122
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/3RMbkXS4ocMmoJyAD3ZsWbm32Kx.jpg",
+      "genre_ids": [
+        28,
+        12,
+        18,
+        878,
+        53
+      ],
+      "id": 615658,
+      "original_language": "en",
+      "original_title": "Awake",
+      "overview": "Tras un suceso global repentino que acaba con todos los dispositivos electrónicos y con la capacidad para dormir de la humanidad, el caos comienza a consumir el mundo rápidamente. Solo Jill, un exsoldado con un pasado problemático, podría tener la clave de la cura en su propia hija. La cuestión es ¿podrá Jill entregar a su hija de manera segura y salvar al mundo antes de que ella misma pierda la cabeza?",
+      "popularity": 1195.548,
+      "poster_path": "/r8kmQ1lBmeC5oLztNKQUBB6xh8i.jpg",
+      "release_date": "2021-06-09",
+      "title": "Disomnia",
+      "video": false,
+      "vote_average": 6.1,
+      "vote_count": 459
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9yBVqNruk6Ykrwc32qrK2TIE5xw.jpg",
+      "genre_ids": [
+        28,
+        14,
+        12
+      ],
+      "id": 460465,
+      "original_language": "en",
+      "original_title": "Mortal Kombat",
+      "overview": "Un boxeador fracasado descubre un secreto familiar que lo lleva a un torneo místico llamado Mortal Kombat donde se encuentra con un grupo de guerreros que luchan hasta la muerte para salvar los reinos del malvado hechicero Shang Tsung.",
+      "popularity": 1148.736,
+      "poster_path": "/t2GbiMJfO8txoihdJC8RsfK1ds7.jpg",
+      "release_date": "2021-04-07",
+      "title": "Mortal Kombat",
+      "video": false,
+      "vote_average": 7.5,
+      "vote_count": 3225
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/inJjDhCjfhh3RtrJWBmmDqeuSYC.jpg",
+      "genre_ids": [
+        14,
+        12,
+        28
+      ],
+      "id": 399566,
+      "original_language": "en",
+      "original_title": "Godzilla vs. Kong",
+      "overview": "Godzilla y Kong, dos de las fuerzas más poderosas de un planeta habitado por todo tipo de aterradoras criaturas, se enfrentan en un espectacular combate que sacude los cimientos de la humanidad. Monarch (Kyle Chandler) se embarca en una misión de alto riesgo y pone rumbo hacia territorios inexplorados para descubrir los orígenes de estos dos titanes, en un último esfuerzo por tratar de salvar a dos bestias que parecen tener las horas contadas sobre la faz de la Tierra.",
+      "popularity": 1119.084,
+      "poster_path": "/bnuC6hu7AB5dYW26A3o6NNLlIlE.jpg",
+      "release_date": "2021-03-24",
+      "title": "Godzilla vs. Kong",
+      "video": false,
+      "vote_average": 8,
+      "vote_count": 6284
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/keIxh0wPr2Ymj0Btjh4gW7JJ89e.jpg",
+      "genre_ids": [
+        28,
+        12,
+        53
+      ],
+      "id": 497698,
+      "original_language": "en",
+      "original_title": "Black Widow",
+      "overview": "Natasha Romanoff, alias Viuda Negra, se enfrenta a las partes más oscuras de su historia cuando surge una peligrosa conspiración con vínculos con su pasado. Perseguida por una fuerza que no se detendrá ante nada para acabar con ella, Natasha debe enfrentarse a su historia como espía y a las relaciones rotas que dejó a su paso mucho antes de convertirse en una Vengadora.",
+      "popularity": 928.805,
+      "poster_path": "/v1XE3dtqd9zsEET0EMkxBgXYP6T.jpg",
+      "release_date": "2021-07-07",
+      "title": "Viuda Negra",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 56
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fPGeS6jgdLovQAKunNHX8l0avCy.jpg",
+      "genre_ids": [
+        28,
+        53,
+        10752
+      ],
+      "id": 567189,
+      "original_language": "en",
+      "original_title": "Tom Clancy's Without Remorse",
+      "overview": "Un ex Navy SEAL convertido en agente de la CIA busca venganza después de que su novia es asesinada por un narcotraficante de Baltimore.",
+      "popularity": 926.343,
+      "poster_path": "/3A2owG58gqx8fzRWhVOMAO6lbWq.jpg",
+      "release_date": "2021-04-29",
+      "title": "Sin remordimientos",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 1316
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/A0xW7GgeFQoQmPOn7HcHkBQ5nlb.jpg",
+      "genre_ids": [
+        53,
+        28
+      ],
+      "id": 817451,
+      "original_language": "en",
+      "original_title": "Endangered Species",
+      "overview": "Jack Halsey lleva a su esposa, a sus hijos adultos y a un amigo a unas vacaciones de ensueño en Kenia. Pero cuando se aventuran solos a un parque salvaje, su furgoneta de safari es volcada por un rinoceronte enojado, dejándolos heridos y desesperados. Luego, cuando dos de ellos van en busca de rescate, un encuentro sangriento y cruel con un leopardo y un clan de hienas incita a una lucha desesperada por la supervivencia.",
+      "popularity": 924.16,
+      "poster_path": "/ccsSqbpEqr2KK9eMvoeF8ERFCd5.jpg",
+      "release_date": "2021-05-27",
+      "title": "Especies en Peligro de Extincion",
+      "video": false,
+      "vote_average": 6.6,
+      "vote_count": 58
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/3WZb1d2XPfHoaJOFf21cRpcIDaX.jpg",
+      "genre_ids": [
+        10751,
+        35,
+        12,
+        16,
+        14
+      ],
+      "id": 522478,
+      "original_language": "en",
+      "original_title": "Peter Rabbit 2: The Runaway",
+      "overview": "Bea, Thomas y los conejos han creado una familia improvisada, pero a pesar de sus mejores esfuerzos, Peter no parece sacudirse su traviesa reputación. Aventurándose más allá del ja´dín, peter se encuentra en un mundo que aprecia sus trastadas, pero cuando su familia lo arriesga todo por ir en su búsqueda, Peter deberá decidir qué tipo de conejo quiere ser.",
+      "popularity": 908.078,
+      "poster_path": "/7qb6u23jMucfMlJ4MCSFo8djka1.jpg",
+      "release_date": "2021-03-25",
+      "title": "Peter Rabbit 2: A la fuga",
+      "video": false,
+      "vote_average": 7.5,
+      "vote_count": 112
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/vDR2h5uQNgWyx3fsEVnEOcNFibZ.jpg",
+      "genre_ids": [
+        80,
+        53
+      ],
+      "id": 801335,
+      "original_language": "en",
+      "original_title": "Girl in the Basement",
+      "overview": "Sara es una adolescente que está deseando cumplir 18 años para alejarse de su padre controlador Don. Pero antes de que pudiera apagar las velas, Don la aprisiona en el sótano de su casa.",
+      "popularity": 867.451,
+      "poster_path": "/qmddUxRwbsxHa7oEXm4PWh1KZe8.jpg",
+      "release_date": "2021-02-27",
+      "title": "Girl in the Basement",
+      "video": false,
+      "vote_average": 8.1,
+      "vote_count": 160
+    }
+  ],
+  "total_pages": 500,
+  "total_results": 10000
+}

@@ -51,5 +51,7 @@ dependencies {
     testImplementation("junit:junit:${Versions.junit}")
     androidTestImplementation("androidx.test.ext:junit:${Versions.ext_junit}")
     androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.espresso}")
+//MockWebServer
+    testImplementation ("com.squareup.okhttp3:mockwebserver:4.9.0")
 
 }

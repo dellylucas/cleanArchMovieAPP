@@ -52,10 +52,10 @@ class MoviesRepository(
             localDataSource.saveMovies(result.data, page)
     }
 
-    private suspend fun getLocalMovies(): DataResult<List<Movie>> =
+    suspend fun getLocalMovies(): DataResult<List<Movie>> =
         localDataSource.getMovies()
 
-    private suspend fun getRemoteMovies(page: Int = 1): DataResult<List<Movie>> =
+    suspend fun getRemoteMovies(page: Int = 1): DataResult<List<Movie>> =
         remoteDataSource.getMovies(page)
 
 }
