@@ -22,12 +22,12 @@ class ServiceTest {
         mockWebServer = serverFakeProvider.mockWebServer
         page = 1
         expected = Movie(
-            508943,
-            "Luca",
-            "Ambientada en un precioso pueblo costero de la Riviera italiana, narra la historia sobre el paso a la edad adulta de un chico que vive un verano inolvidable lleno de helados, pasta e infinitos paseos en scooter. Luca comparte estas aventuras con su nuevo mejor amigo, pero toda la diversión se ve amenazada por un secreto muy profundo: él es un monstruo marino de un mundo que yace bajo la superficie del agua.",
-            "/pr06RihHOGE3waZQx5fs2WYUdwr.jpg",
-            false,
-            page
+            id = 508943,
+            name = "Luca",
+            description = "Ambientada en un precioso pueblo costero de la Riviera italiana, narra la historia sobre el paso a la edad adulta de un chico que vive un verano inolvidable lleno de helados, pasta e infinitos paseos en scooter. Luca comparte estas aventuras con su nuevo mejor amigo, pero toda la diversión se ve amenazada por un secreto muy profundo: él es un monstruo marino de un mundo que yace bajo la superficie del agua.",
+            posterPath = "/pr06RihHOGE3waZQx5fs2WYUdwr.jpg",
+            isAdult = false,
+            page = page
         )
     }
 
