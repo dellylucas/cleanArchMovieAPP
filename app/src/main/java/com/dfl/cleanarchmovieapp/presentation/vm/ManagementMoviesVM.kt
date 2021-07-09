@@ -53,22 +53,15 @@ class ManagementMoviesVM @Inject constructor(
      * detectar la visualizacion de las ultimas en la vista para saber si
      * traer nuevas
      */
-    fun getNewMovies(visibleNumber: Int) {
-        val fileBeforeCharge = 6
-        val itemVisibleForCharge = (_movies.value?.count() ?: 0) - fileBeforeCharge
-        //si faltan como minimo 6 peliculas por mostrar carga nuevas
-        if (itemVisibleForCharge <= visibleNumber && _load.value == false) {
-            Log.d(TRACK_INFO, "VM: get new movies $page")
-            _load.value = true
-            viewModelScope.launch {
-                when (val result = getUseCaseMovies.getMoviesByPage(page)) {
-                    is DataResult.Error -> Log.d(TRACK_INFO, "error: " + result.exception.message)
-                    is DataResult.Success -> {
-                        page = result.data.first().page
-                        _movies.postValue(_movies.value?.plus(result.data))
-                    }
+    fun getNewMovies() {
+        Log.d(TRACK_INFO, "VM: get new movies $page")
+        viewModelScope.launch {
+            when (val result = getUseCaseMovies.getMoviesByPage(page)) {
+                is DataResult.Error -> Log.d(TRACK_INFO, "error: " + result.exception.message)
+                is DataResult.Success -> {
+                    page = result.data.first().page+1
+                    _movies.postValue(_movies.value?.plus(result.data))
                 }
-                _load.value = false
             }
         }
     }

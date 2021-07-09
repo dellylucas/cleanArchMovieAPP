@@ -72,7 +72,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.navigation}")
     // Feature module Support
     implementation("androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigation}")
-
+    implementation ("com.github.omadahealth:swipy:1.2.3@aar")
 
     //room
     implementation("androidx.room:room-runtime:${Versions.room}")

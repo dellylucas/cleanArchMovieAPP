@@ -6,16 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.ListMovieFragment">
 
+    <com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout
+        android:id="@+id/swipyrefreshlayout"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srl_direction="bottom">
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/moviesRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/animationLoading"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0"
+        tools:listitem="@layout/adapter_list_movie"
         app:spanCount="3" />
 
+    </com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout>
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationLoading"
         android:layout_width="match_parent"
@@ -34,4 +44,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

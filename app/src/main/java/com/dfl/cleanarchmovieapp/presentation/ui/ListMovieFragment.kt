@@ -7,13 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.dfl.cleanarchmovieapp.databinding.FragmentListMovieBinding
 import com.dfl.cleanarchmovieapp.presentation.ui.adapter.ListMovieAdapter
 import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
 import com.dfl.cleanarchmovieapp.utils.setVisibility
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class ListMovieFragment : Fragment() {
@@ -41,24 +40,18 @@ class ListMovieFragment : Fragment() {
         viewModel.getAllMovies()
         viewModel.movies.observe(viewLifecycleOwner, { movies ->
             adapterMovies.submitList(movies)
+            binding.swipyrefreshlayout.isRefreshing = false
         })
         viewModel.load.observe(viewLifecycleOwner, {
             binding.animationLoading.setVisibility(it)
         })
-        binding.moviesRecyclerView.addOnScrollListener(onScrollListener())
-    }
 
-    /**
-     * Scroll para detectar ultimo item y cargar nuevos elementos
-     */
-    private fun onScrollListener() = object : RecyclerView.OnScrollListener() {
-        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-            super.onScrolled(recyclerView, dx, dy)
-            val lastItemVisible =
-                (recyclerView.layoutManager as GridLayoutManager).findLastVisibleItemPosition()
-            viewModel.getNewMovies(lastItemVisible)
+        //Scroll para  cargar nuevos elementos
+        binding.swipyrefreshlayout.setOnRefreshListener {
+            viewModel.getNewMovies()
         }
     }
+
 
     /**+
      * navegacion hacia el detalle de una pelicula seleccionada
