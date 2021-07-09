@@ -1,4 +1,4 @@
-package com.dfl.cleanarchmovieapp
+package com.dfl.cleanarchmovieapp.notImplemented
 
 import com.dfl.datamodule.MoviesRepository
 import com.dfl.datamodule.dbsqlite.RoomDBDataSource
@@ -24,13 +24,12 @@ class Test {
     }
 
     @Test
-    suspend fun testeo() {
+    fun testeo() {
       /*  coEvery { providerServer.getMovies(1) } returns DataResult.Error(Exception(""))
         repo.getMovies()
         coVerify { providerDb.getMovies(1) }*/
         coEvery {  providerServer.getMovies(1) } returns com.dfl.sharedmodule.DataResult.Error(Exception(""))
 
-        providerServer.getMovies(1)
         coVerify { providerServer.getMovies(1)}
     }
 }

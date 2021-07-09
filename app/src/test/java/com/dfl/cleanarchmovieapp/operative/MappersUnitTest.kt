@@ -1,4 +1,4 @@
-package com.dfl.cleanarchmovieapp
+package com.dfl.cleanarchmovieapp.operative
 
 import com.dfl.datamodule.dbsqlite.MovieEntity
 import com.dfl.datamodule.mapper.MovieMap
@@ -25,19 +25,19 @@ class MappersUnitTest {
     }
 
     @Test
-    fun testMapRemoteToModel() {
+    fun `debe mapear modelo remoto a modelo principal`() {
         val sut = MovieMap.getItems(listOf(remote), page)
         assertEquals(model, sut.first())
     }
 
     @Test
-    fun testMapToDB() {
+    fun `debe mapear modelo principal a modelo de base de datos`() {
         val sut = MovieMap.getMoviesEntity(listOf(model), page)
         assertEquals(entity, sut.first())
     }
 
     @Test
-    fun testMapFromDBToModel() {
+    fun `debe mapear modelo de base de datos a modelo principal`() {
         val sut = MovieMap.getMovieFromEntity(entity)
         assertEquals(model, sut)
     }

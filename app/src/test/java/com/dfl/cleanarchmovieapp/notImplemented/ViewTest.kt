@@ -1,4 +1,4 @@
-package com.dfl.cleanarchmovieapp.ui
+package com.dfl.cleanarchmovieapp.notImplemented
 
 import android.os.Looper
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
@@ -8,7 +8,7 @@ import androidx.fragment.app.testing.withFragment
 import androidx.lifecycle.Lifecycle
 import com.dfl.cleanarchmovieapp.MoviesApplication
 import com.dfl.cleanarchmovieapp.presentation.ui.ListMovieFragment
-import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
+import com.dfl.cleanarchmovieapp.operative.vm.ManagementMoviesVM
 import dagger.hilt.android.testing.HiltAndroidTest
 import io.mockk.mockk
 import org.junit.Before

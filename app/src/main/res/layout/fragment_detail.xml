@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM" />
+            type="com.dfl.cleanarchmovieapp.operative.vm.ManagementMoviesVM" />
     </data>
 
 

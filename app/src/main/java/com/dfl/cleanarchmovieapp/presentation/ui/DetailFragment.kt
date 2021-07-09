@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.dfl.cleanarchmovieapp.databinding.FragmentDetailBinding
-import com.dfl.cleanarchmovieapp.presentation.vm.ManagementMoviesVM
+import com.dfl.cleanarchmovieapp.operative.vm.ManagementMoviesVM
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

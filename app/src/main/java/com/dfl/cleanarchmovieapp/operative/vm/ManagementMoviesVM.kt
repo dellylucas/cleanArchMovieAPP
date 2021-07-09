@@ -1,4 +1,4 @@
-package com.dfl.cleanarchmovieapp.presentation.vm
+package com.dfl.cleanarchmovieapp.operative.vm
 
 import android.util.Log
 import androidx.lifecycle.LiveData

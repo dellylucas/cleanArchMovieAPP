@@ -90,13 +90,15 @@ dependencies {
     testImplementation("junit:junit:${Versions.junit}")
     testImplementation("io.mockk:mockk:${Versions.mockk}")
     androidTestImplementation("androidx.test.ext:junit:${Versions.ext_junit}")
-    androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.espresso}")
     testImplementation("org.robolectric:robolectric:4.4")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.0")
     testImplementation("com.google.truth:truth:1.0.1")
     implementation("androidx.arch.core:core-testing:2.1.0")
     debugImplementation("androidx.fragment:fragment-testing:${Versions.fragment}")
 
+    androidTestImplementation("androidx.test:rules:1.4.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.espresso}")
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:${Versions.espresso}")
 
     // For local unit tests
     testImplementation("com.google.dagger:hilt-android-testing:2.37")

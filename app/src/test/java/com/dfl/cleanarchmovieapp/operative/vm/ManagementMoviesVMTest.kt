@@ -1,4 +1,4 @@
-package com.dfl.cleanarchmovieapp.presentation.vm
+package com.dfl.cleanarchmovieapp.operative.vm
 
 import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
@@ -55,7 +55,7 @@ class ManagementMoviesVMTest {
     }
 
     @Test
-    fun testIntegrationReturnMovies() {
+    fun `test integracion debe retornar la peliculas de la fuente de datos fake`() {
         viewModel.getAllMovies()
 
         val value = viewModel.movies.getOrAwaitValueTest()
@@ -66,7 +66,7 @@ class ManagementMoviesVMTest {
      * @see FakeLocalProvider
      */
     @Test
-    fun testIntegrationReturnMovieById() {
+    fun `test integracion debe retornar la pelicula con el Id indicado de la fuente de datos fake`() {
         val movieId = 2
         viewModel.getMovieById(movieId)
 
