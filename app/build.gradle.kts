@@ -62,6 +62,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle_ktx}")
     implementation("androidx.activity:activity-ktx:${Versions.activity_ktx}")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
 
     //IDep Hilt
     implementation("com.google.dagger:hilt-android:${Versions.hilt}")
